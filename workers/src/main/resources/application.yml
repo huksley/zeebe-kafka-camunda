@@ -1,0 +1,3 @@
+zeebe:
+  broker:
+    url: localhost:26500
