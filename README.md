@@ -45,4 +45,6 @@ docker-compose up -d
   * https://docs.zeebe.io/basics/exporters.html
   * https://forum.zeebe.io/t/simple-monitor-ui/186
   * http://www.searchkit.co/
+  * https://github.com/zeebe-io/zeebe-get-started-java-client/blob/master/src/main/java/io/zeebe/Application.java
+  * https://github.com/yaronn/blessed-contrib
 
