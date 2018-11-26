@@ -1,0 +1,6 @@
+#!/bin/bash
+
+docker rm -f zeebe zeebe-kafka zeebe-elastic zeebe-nginx zeebe-zookeeper zeebe-mon
+sudo rm -Rf data/*
+sudo rm -Rf logs/*
+

@@ -1,0 +1,112 @@
+# Zeebe broker configuration file
+# Source from https://docs.zeebe.io/operations/the-zeebecfgtoml-file.html
+# or from docker camunda/zeebe:0.13.1
+
+[gateway]
+enable = true
+
+[gateway.network]
+host = "0.0.0.0"
+port = 26500
+
+[gateway.cluster]
+contactPoint = "127.0.0.1:26501"
+transportBuffer = "2M"
+requestTimeout = "15s"
+
+[gateway.threads]
+managementThreads = 1
+
+[network]
+host = "0.0.0.0"
+portOffset = 0
+defaultSendBufferSize = "16M"
+
+[network.client]
+port = 26501
+sendBufferSize = "16M"
+controlMessageBufferSize = "8M"
+
+[network.management]
+port = 26502
+sendBufferSize = "16M"
+receiveBufferSize = "8M"
+
+[network.replication]
+port = 26503
+sendBufferSize = "16M"
+
+[network.subscription]
+port = 26504
+sendBufferSize = "16M"
+receiveBufferSize = "8M"
+
+[data]
+directories = [ "data" ]
+defaultSegmentSize = "512M"
+snapshotPeriod = "15m"
+snapshotReplicationPeriod = "5m"
+
+[cluster]
+nodeId = 0
+partitionsCount = 1
+replicationFactor = 1
+clusterSize = 1
+# initialContactPoints = [ "192.168.1.22:26502", "192.168.1.32:26502" ]
+
+[threads]
+cpuThreadCount = 2
+ioThreadCount = 2
+
+[metrics]
+metricsFile = "metrics/zeebe.prom"
+reportingInterval = "5s"
+
+# Exports to console log
+[[exporters]]
+id = "debug-log"
+className = "io.zeebe.broker.exporter.debug.DebugLogExporter"
+
+  [exporters.args]
+  logLevel = "debug"
+  prettyPrint = false
+
+# Exports to Elasticsearch
+[[exporters]]
+id = "elasticsearch"
+className = "io.zeebe.exporter.ElasticsearchExporter"
+
+  [exporters.args]
+  url = "http://elastic:9200"
+
+  [exporters.args.bulk]
+  delay = 5
+  size = 1000
+
+  [exporters.args.index]
+  prefix = "zeebe-record"
+  createTemplate = true
+  command = false
+  event = true
+  rejection = false
+  deployment = true
+  incident = true
+  job = true
+  message = false
+  messageSubscription = false
+  raft = false
+  workflowInstance = true
+  workflowInstanceSubscription = false
+
+# Exports to temp H2 db to be consumed by https://github.com/zeebe-io/zeebe-simple-monitor
+[[exporters]]
+id = "simple-monitor"
+className = "io.zeebe.monitor.SimpleMonitorExporter"
+
+  # specify jdbc url in environment
+  [exporters.args]
+  driverName = "org.h2.Driver"
+  user = "sa"
+  password = ""
+  batchSize = 100
+  batchTimerMilli = 1000

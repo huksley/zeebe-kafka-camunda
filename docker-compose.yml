@@ -1,0 +1,150 @@
+version: '2.2'
+services:
+  zookeeper:
+    container_name: zeebe-zookeeper
+    image: zookeeper:3.4
+    environment:
+      - SERVER_PORT=2181
+    ports:
+      - "127.0.0.1:2181:2181"
+    volumes:
+      - ./data/zookeeper:/data
+      - ./data/zookeeperlog:/datalog
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 2181" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  kafka:
+    container_name: zeebe-kafka
+    image: wurstmeister/kafka:2.11-2.0.1
+    restart: unless-stopped
+    ports:
+      - "127.0.0.1:9092:9092"
+    environment:
+      SERVER_PORT: 9092
+      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
+      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+    volumes:
+      - ./data/kafka:/kafka
+      - ./logs/kafka:/opt/kafka_2.11-2.0.1/logs
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 9092" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  zeebe:
+    container_name: zeebe
+    image: camunda/zeebe:0.13.1
+    ports:
+      # Client API
+      - "127.0.0.1:26500:26500"
+      # Management API for broker to broker communcation
+      - "127.0.0.1:26502:26502"
+      # Replication API for broker to broker replication
+      - "127.0.0.1:26503:26503"
+    environment:
+      - SERVER_PORT=26500
+      - ZEEBE_LOG_LEVEL=info
+      - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://monitor-h2:1521/zeebe?DB_CLOSE_DELAY=-1"
+    volumes:
+      - ./data/zeebe:/usr/local/zeebe/data
+      - ./data/zeebe-metrics:/usr/local/zeebe/metrics
+      - ./logs/zeebe:/usr/local/zeebe/logs
+      - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml:ro
+      - ./zeebe-simple-monitor/exporter/target/zeebe-simple-monitor-exporter-0.9.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar:ro
+    links:
+      - elastic
+      - monitor-h2
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 26500" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+    restart: unless-stopped
+  monitor-h2:
+    container_name: zeebe-mon-h2
+    image: huksley/h2
+    environment:
+      - SERVER_PORT=1521
+    volumes:
+      - ./data/h2:/opt/h2-data
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 1521" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  monitor:
+    container_name: zeebe-mon
+    image: camunda/zeebe-simple-monitor:latest
+    restart: unless-stopped
+    environment:
+      - SERVER_PORT=8080
+      # Reads existing file created by Zeebee
+      - spring.datasource.url=jdbc:h2:tcp://monitor-h2:1521/zeebe?DB_CLOSE_DELAY=-1
+      - spring.jpa.hibernate.ddl-auto=validate
+      - logging.level.root=DEBUG
+      - logging.level.org=INFO
+      - logging.level.com=INFO
+      - logging.level.sun=INFO
+      - logging.level.org.springframework.boot.autoconfigure=ERROR
+      - logging.org.hibernate=DEBUG
+      - logging.org.h2=DEBUG
+      # URL to Zeebe
+      - "io.zeebe.monitor.connectionString=zeebe:26500"
+    ports:
+      - "8182:8080"
+    volumes:
+      - ./data/zeebe/monitor:/data
+    links:
+      - monitor-h2
+    command: --debug
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 8080" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  elastic:
+    image: elasticsearch:6.5.1
+    container_name: zeebe-elastic
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    environment:
+      - SERVER_PORT=9200
+      - cluster.name=zeebe
+      # This enabled development mode https://www.elastic.co/guide/en/elasticsearch/reference/current/docker.html
+      # which makes bootstrap checks as warnings
+      - discovery.type=single-node
+      - "ES_JAVA_OPTS=-Xms256m -Xmx256m"
+    volumes:
+      - ./data/elastic:/usr/share/elasticsearch/data
+      - ./logs/elastic:/usr/share/elasticsearch/logs
+    ports:
+      - "127.0.0.1:9200:9200"
+      - "172.17.0.1:9200:9200"
+    command: elasticsearch -Ediscovery.type=single-node -Ecluster.name=zeebe -Ehttp.cors.allow-origin="*" -Ehttp.cors.enabled=true -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization -Ehttp.cors.allow-credentials=true
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 9200" ]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+  www:
+    image: nginx
+    container_name: zeebe-nginx
+    environment:
+      - SERVER_PORT=8080
+    volumes:
+      - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
+      - ./www:/var/www:ro
+    ports:
+      - "127.0.0.1:8181:8080"
+  kibana:
+    image: kibana:6.5.1
+    container_name: zeebe-kibana
+    environment:
+      - SERVER_PORT=5601
+      - ELASTICSEARCH_URL=http://elastic:9200
+    ports:
+      - "127.0.0.1:5601:5601"
