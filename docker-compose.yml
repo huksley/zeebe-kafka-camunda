@@ -17,22 +17,41 @@ services:
       retries: 5
   kafka:
     container_name: zeebe-kafka
-    image: wurstmeister/kafka:2.11-2.0.1
+    image: wurstmeister/kafka:2.11-1.1.1
     restart: unless-stopped
     ports:
       - "127.0.0.1:9092:9092"
     environment:
-      SERVER_PORT: 9092
-      KAFKA_ADVERTISED_HOST_NAME: 127.0.0.1
-      KAFKA_ZOOKEEPER_CONNECT: zookeeper:2181
+      - SERVER_PORT=9092
+      - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1
+      - KAFKA_ADVERTISED_PORT=9092
+      - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
+      - KAFKA_JMX_PORT=6123
+      - KAFKA_MESSAGE_MAX_BYTES=2000000
+      - KAFKA_AUTO_CREATE_TOPICS_ENABLE=true
+      - KAFKA_ADVERTISED_LISTENERS=PLAINTEXT://127.0.0.1:9092
     volumes:
       - ./data/kafka:/kafka
       - ./logs/kafka:/opt/kafka_2.11-2.0.1/logs
     healthcheck:
-      test: [ "CMD-SHELL", "echo INFO | nc localhost 9092" ]
+      test: [ "CMD-SHELL", "echo '00 00 00 0E 0003 0003 00 00 00 00 FF FF 00 00 00 00' | xxd -r -p | nc localhost 9092 -w 1 | xxd" ]
       interval: 30s
       timeout: 10s
-      retries: 5
+      retries: 3
+  kafka-manager:
+    container_name: zeebe-kafka-man
+    image: sheepkiller/kafka-manager
+    environment:
+      - APPLICATION_SECRET=123
+      - ZK_HOSTS=zookeeper:2181
+      - SERVER_PORT=9000
+    ports:
+      - "127.0.0.1:8185:9000"
+    healthcheck:
+      test: [ "CMD-SHELL", "echo INFO | nc localhost 9000" ]
+      interval: 30s
+      timeout: 10s
+      retries: 3
   zeebe:
     container_name: zeebe
     image: camunda/zeebe:0.13.1
@@ -46,7 +65,7 @@ services:
     environment:
       - SERVER_PORT=26500
       - ZEEBE_LOG_LEVEL=info
-      - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://monitor-h2:1521/zeebe?DB_CLOSE_DELAY=-1"
+      - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://monitor-h2:1521/zeebe"
     volumes:
       - ./data/zeebe:/usr/local/zeebe/data
       - ./data/zeebe-metrics:/usr/local/zeebe/metrics
@@ -81,7 +100,7 @@ services:
     environment:
       - SERVER_PORT=8080
       # Reads existing file created by Zeebee
-      - spring.datasource.url=jdbc:h2:tcp://monitor-h2:1521/zeebe?DB_CLOSE_DELAY=-1
+      - spring.datasource.url=jdbc:h2:tcp://monitor-h2:1521/zeebe
       - spring.jpa.hibernate.ddl-auto=validate
       - logging.level.root=DEBUG
       - logging.level.org=INFO
@@ -123,7 +142,6 @@ services:
       - ./logs/elastic:/usr/share/elasticsearch/logs
     ports:
       - "127.0.0.1:9200:9200"
-      - "172.17.0.1:9200:9200"
     command: elasticsearch -Ediscovery.type=single-node -Ecluster.name=zeebe -Ehttp.cors.allow-origin="*" -Ehttp.cors.enabled=true -Ehttp.cors.allow-headers=X-Requested-With,X-Auth-Token,Content-Type,Content-Length,Authorization -Ehttp.cors.allow-credentials=true
     healthcheck:
       test: [ "CMD-SHELL", "echo INFO | nc localhost 9200" ]
@@ -147,4 +165,15 @@ services:
       - SERVER_PORT=5601
       - ELASTICSEARCH_URL=http://elastic:9200
     ports:
-      - "127.0.0.1:5601:5601"
+      - "127.0.0.1:8184:5601"
+  metabase:
+    image: huksley/metabase
+    container_name: zeebe-metabase
+    environment:
+      - MB_DB_TYPE=h2
+      - MB_DB_FILE=/data/h2.db
+      - MB_JETTY_PORT=3000
+    volumes:
+      - ./data/metabase:/data
+    ports:
+      - "127.0.0.1:8183:3000"
