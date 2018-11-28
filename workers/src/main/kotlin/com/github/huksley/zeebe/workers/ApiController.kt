@@ -7,7 +7,5 @@ import org.springframework.web.bind.annotation.RestController
 class ApiController {
 
     @GetMapping("/status")
-    fun status(): String {
-        return "OK"
-    }
+    fun status(): String = "" + System.currentTimeMillis().hashCode()
 }

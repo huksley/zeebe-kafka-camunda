@@ -1,3 +1,9 @@
 zeebe:
   broker:
     url: localhost:26500
+
+spring:
+  kafka:
+    consumer:
+      group-id: foo
+      auto-offset-reset: earliest

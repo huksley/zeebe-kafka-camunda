@@ -1,4 +1,6 @@
+.git
 data
 data/**
 logs
 logs/**
+zeebe-simple-monitor

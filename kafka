@@ -1,0 +1,17 @@
+#!/bin/bash
+
+TI="-i"
+PP=""
+if [[ "$1" =~ "kafka-.*" ]]; then
+  PP=/opt/kafka/bin
+fi
+
+if [[ "$" == "sh" ]]; then
+  TI="-ti"
+fi
+
+if [[ "$@" == "" ]]; then
+  docker exec $TI zeebe-kafka sh -c "ls -l /opt/kafka/bin"
+else
+  docker exec $TI zeebe-kafka sh -c "$PP$1 $2 $3 $4 $5 $6 $7 $8 $9 ${10} ${11} ${12} ${13} ${14} ${15}"
+fi
