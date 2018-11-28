@@ -22,6 +22,41 @@ cd ..
 docker-compose up -d
 ```
 
+## Commands
+
+**Show all available kafka commands in container**
+
+`./kafka`
+
+**Create kafka topic**
+
+`./kafka kafka-topics.sh --zookeeper zookeeper:2181 --create  --topic test --partitions 1 --replication-factor 1`
+
+**Show information about created topic**
+
+`./kafka kafka-topics.sh --zookeeper zookeeper:2181 --describe --topic test`
+
+**Start test console producer**
+
+Type messages on console (one line - one payload) or pipe them
+
+`./kafka kafka-console-producer.sh --broker-list localhost:9092 --topic test`
+
+**Start test console consumer**
+
+Will output incoming messages - one message per line.
+
+`./kafka kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test`
+
+**Start H2 console**
+
+```
+> docker exec -ti zeebe-mon-h2 java -jar bin/h2-1.4.197.jar -web -webAllowOthers
+Web Console server running at http://172.24.0.X:8082 (others can connect)
+```
+
+To browse H2 database open in browser the printed URL and enter connection URL: `jdbc:h2:tcp://monitor-h2:1521/zeebe`
+
 ## Known links
 
   * Launchpad http://localhost:8180
@@ -45,6 +80,7 @@ docker-compose up -d
   * https://docs.zeebe.io/basics/exporters.html
   * https://forum.zeebe.io/t/simple-monitor-ui/186
   * http://www.searchkit.co/
-  * https://github.com/zeebe-io/zeebe-get-started-java-client/blob/master/src/main/java/io/zeebe/Application.java
+  * https://github.com/zeebe-io/zeebe-get-started-java-client
   * https://github.com/yaronn/blessed-contrib
+  * ?
 
