@@ -86,6 +86,7 @@ services:
   monitor-h2:
     container_name: zeebe-mon-h2
     image: huksley/h2
+    restart: unless-stopped
     environment:
       - SERVER_PORT=1521
     volumes:

@@ -1,5 +1,12 @@
 #!/bin/bash
+# Various containers work under different UID/GUID
+# be dangerous and make these directories world readable
+# NOT A PRODUCTION SETUP!
+
 sudo mkdir -p data/elastic
 sudo chmod a+rwX data/elastic
 sudo mkdir -p logs/elastic
 sudo chmod a+rwX logs/elastic
+sudo mkdir -p data/h2
+sudo chmod a+rwX data/h2
+

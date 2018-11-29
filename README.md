@@ -10,7 +10,7 @@ The goal of this project is to create private environment to explore, test and a
   * Zeebe-simple-monitor
   * Kotlin workers (WIP)
 
-## Installing
+## Installing and running
 
 ```bash
 git clone https://github.com/huksley/zeebe-kafka-camunda
@@ -19,8 +19,13 @@ git clone https://github.com/huksley/zeebe-simple-monitor
 cd zeebe-simple-monitor
 ./gradlew build
 cd ..
+./fix-perms
 docker-compose up -d
+cd workers
+./gradlew run
 ```
+
+Open http://localhost:8080/status to see all processed orders.
 
 ## Commands
 
