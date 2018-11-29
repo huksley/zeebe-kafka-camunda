@@ -1,9 +1,11 @@
-zeebe:
-  broker:
-    url: localhost:26500
+micronaut:
+  application:
+    name: workers
+  executors:
+    scheduled:
+      type: scheduled
+      core-pool-size: 5
 
-spring:
-  kafka:
-    consumer:
-      group-id: foo
-      auto-offset-reset: earliest
+kafka:
+  bootstrap:
+    servers: localhost:9092

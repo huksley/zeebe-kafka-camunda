@@ -1,76 +1,83 @@
-buildscript {
-    ext {
-        kotlinVersion = '1.3.10'
-        springBootVersion = '2.1.0.RELEASE'
-        zeebeVersion = '0.13.0'
-
-    }
-
-    repositories {
-        mavenCentral()
-    }
-
-    dependencies {
-        classpath "io.spring.gradle:dependency-management-plugin:0.5.2.RELEASE"
-        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:${kotlinVersion}")
-        classpath("org.jetbrains.kotlin:kotlin-allopen:${kotlinVersion}")
-    }
+plugins {
+  id "io.spring.dependency-management" version "1.0.6.RELEASE"
+  id "com.github.johnrengelman.shadow" version "4.0.2"
+  id "org.jetbrains.kotlin.jvm" version "1.3.10"
+  id "org.jetbrains.kotlin.kapt" version "1.3.10"
+  id "org.jetbrains.kotlin.plugin.allopen" version "1.3.10"
 }
 
-apply plugin: 'kotlin'
-apply plugin: 'kotlin-spring'
-apply plugin: 'eclipse'
-apply plugin: 'org.springframework.boot'
-apply plugin: 'io.spring.dependency-management'
+apply plugin: "application"
 
-group = 'com.github.huksley.zeebetest'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = 1.8
-
-compileKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
-    }
-}
-
-compileTestKotlin {
-    kotlinOptions {
-        freeCompilerArgs = ["-Xjsr305=strict"]
-        jvmTarget = "1.8"
-    }
-}
+version "0.1.1-SNAPSHOT"
+group "com.github.huksley.zeebe"
 
 repositories {
-    mavenCentral()
-    maven {
-        url 'https://repo.spring.io/libs-milestone'
-    }
+  mavenLocal()
+  mavenCentral()
+  maven { url "https://jcenter.bintray.com" }
 }
 
 dependencyManagement {
-    imports {
-        mavenBom 'org.springframework.cloud:spring-cloud-stream-dependencies:Fishtown.RC2'
-    }
+  imports {
+    mavenBom 'io.micronaut:micronaut-bom:1.0.1'
+  }
 }
 
 dependencies {
+  compile "com.jcraft:jzlib:1.1.3" // https://gist.github.com/huksley/02134ddd94e252791fd02e4c1c2552fd
+  compile "io.micronaut.configuration:micronaut-kafka"
+  compile "org.apache.kafka:kafka-clients:${kafkaVersion}"
+  compile "io.zeebe:zeebe-client-java:${zeebeVersion}"
+  compile "io.micronaut:micronaut-http-client"
+  compile "io.micronaut:micronaut-http-server-netty"
+  compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
+  compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+  compile "io.micronaut:micronaut-runtime"
+  compileOnly "com.oracle.substratevm:svm"
+  kapt "io.micronaut:micronaut-inject-java"
+  kapt "io.micronaut:micronaut-validation"
+  kaptTest "io.micronaut:micronaut-inject-java"
+  runtime "ch.qos.logback:logback-classic:1.2.3"
+  runtime "io.micronaut:micronaut-graal"
+  runtime "com.fasterxml.jackson.module:jackson-module-kotlin:2.9.4.1"
+  testCompile "junit:junit:4.12"
+  testCompile "io.micronaut:micronaut-inject-java"
+  testCompile "org.hamcrest:hamcrest-all:1.3"
+  testCompile "org.junit.jupiter:junit-jupiter-api:5.1.0"
+  testCompile "org.jetbrains.spek:spek-api:1.1.5"
+  testRuntime "org.junit.jupiter:junit-jupiter-engine:5.1.0"
+  testRuntime "org.jetbrains.spek:spek-junit-platform-engine:1.1.5"
+}
 
-    implementation('org.springframework.kafka:spring-kafka')
-    // implementation('org.springframework.cloud:spring-cloud-stream')
-    // implementation('org.springframework.cloud:spring-cloud-starter-stream-kafka')
+shadowJar {
+  mergeServiceFiles()
+}
 
-    // For Jackson Kotlin classes support please add "com.fasterxml.jackson.module:jackson-module-kotlin" to the classpath
-    implementation('com.fasterxml.jackson.module:jackson-module-kotlin')
-    implementation('org.springframework.boot:spring-boot-starter-web')
-    implementation('org.springframework.boot:spring-boot-starter-validation')
-    implementation('io.github.microutils:kotlin-logging:1.6.20')
-    implementation("io.zeebe:zeebe-client-java:${zeebeVersion}")
-    implementation('org.springframework.boot:spring-boot-starter')
-    implementation('org.springframework.kafka:spring-kafka')
-    implementation('org.jetbrains.kotlin:kotlin-stdlib-jdk8')
-    implementation('org.jetbrains.kotlin:kotlin-reflect')
-    testImplementation('org.springframework.boot:spring-boot-starter-test')
-    testImplementation('org.springframework.kafka:spring-kafka-test')
+run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
+
+mainClassName = "com.github.huksley.zeebe.Application"
+
+test {
+  useJUnitPlatform()
+}
+
+allOpen {
+  annotation("io.micronaut.aop.Around")
+}
+
+compileKotlin {
+  kotlinOptions {
+    freeCompilerArgs = ["-Xjsr305=strict"]
+    jvmTarget = '1.8'
+    //Will retain parameter names for Java reflection
+    javaParameters = true
+  }
+}
+
+compileTestKotlin {
+  kotlinOptions {
+    freeCompilerArgs = ["-Xjsr305=strict"]
+    jvmTarget = '1.8'
+    javaParameters = true
+  }
 }
