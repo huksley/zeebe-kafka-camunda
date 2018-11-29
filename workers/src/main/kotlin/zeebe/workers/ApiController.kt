@@ -5,6 +5,6 @@ import io.micronaut.http.annotation.Get
 
 @Controller("/")
 class ApiController {
-  @Get("/")
+  @Get("/status")
   fun status(): String = "OK"
 }
