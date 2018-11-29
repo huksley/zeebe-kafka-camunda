@@ -8,7 +8,7 @@ import zeebe.workers.KafkaOrderSender
 class KafkaNullSender: KafkaOrderSender {
   val log = LoggerFactory.getLogger(javaClass)
 
-  override fun sendOrder(id: String, orderId: String, from: String, source: String) {
+  override fun sendOrder(id: String, orderId: Long, from: String, source: String) {
     log.info("Not sending order ${id}, ${orderId}")
   }
 }

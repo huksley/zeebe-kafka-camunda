@@ -12,24 +12,17 @@ import javax.inject.Singleton
 
 @Singleton
 open class KafkaSender {
-  companion object {
-    val console = LoggerFactory.getLogger(KafkaSender::class.java.name)
-  }
+  val log = LoggerFactory.getLogger(javaClass)
 
   @Inject
   lateinit var sender: KafkaOrderSender
 
-  @EventListener
-  @Async
-  open fun onStartup(event: ServerStartupEvent) {
-    console.info("Startup {}", event)
-    sender.sendOrder(System.currentTimeMillis().toString(), "dasdsds", InetAddress.getLocalHost().hostName, "kotlin-micronaut-worker")
-  }
-
   @CircuitBreaker
   @Scheduled(fixedDelay = "250ms")
   open fun tryResend() {
-    sender.sendOrder(System.currentTimeMillis().toString(), "dasdsds" + System.currentTimeMillis(), InetAddress.getLocalHost().hostName, "kotlin-micronaut-worker")
+    log.info("Sending new order to kafka")
+    sender.sendOrder(System.currentTimeMillis().toString(),
+      "X" + System.currentTimeMillis(),
+      InetAddress.getLocalHost().hostName, "kotlin-micronaut-kafka")
   }
-
 }
