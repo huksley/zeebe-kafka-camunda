@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe
+package zeebe.workers
 
 import io.micronaut.runtime.event.annotation.EventListener
 import io.micronaut.runtime.server.event.ServerStartupEvent
@@ -9,9 +9,9 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
-class KafkaSender {
+open class KafkaSender {
   companion object {
-    val console = LoggerFactory.getLogger(KafkaReceiver::class.java.name)
+    val console = LoggerFactory.getLogger(KafkaSender::class.java.name)
   }
 
   @Inject
@@ -19,7 +19,7 @@ class KafkaSender {
 
   @EventListener
   @Async
-  private fun onStartup(event: ServerStartupEvent) {
+  open fun onStartup(event: ServerStartupEvent) {
     console.info("Startup {}", event)
     sender.sendOrder(System.currentTimeMillis().toString(), "dasdsds", InetAddress.getLocalHost().hostName, "kotlin-micronaut-worker")
   }

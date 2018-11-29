@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe
+package zeebe.workers
 
 import io.micronaut.configuration.kafka.annotation.KafkaClient
 import io.micronaut.configuration.kafka.annotation.KafkaKey

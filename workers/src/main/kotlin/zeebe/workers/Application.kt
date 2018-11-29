@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe
+package zeebe.workers
 
 import io.micronaut.runtime.Micronaut
 

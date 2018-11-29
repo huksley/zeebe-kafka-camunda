@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe
+package zeebe.workers
 
 import org.apache.kafka.clients.consumer.Consumer
 import org.apache.kafka.clients.consumer.KafkaConsumer

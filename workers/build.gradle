@@ -7,9 +7,8 @@ plugins {
 }
 
 apply plugin: "application"
-
 version "0.1.1-SNAPSHOT"
-group "com.github.huksley.zeebe"
+group "huksley"
 
 repositories {
   mavenLocal()
@@ -24,7 +23,8 @@ dependencyManagement {
 }
 
 dependencies {
-  compile "com.jcraft:jzlib:1.1.3" // https://gist.github.com/huksley/02134ddd94e252791fd02e4c1c2552fd
+  // needed for GraalVM
+  //compile "com.jcraft:jzlib:1.1.3" // https://gist.github.com/huksley/02134ddd94e252791fd02e4c1c2552fd
   compile "io.micronaut.configuration:micronaut-kafka"
   compile "org.apache.kafka:kafka-clients:${kafkaVersion}"
   compile "io.zeebe:zeebe-client-java:${zeebeVersion}"
@@ -55,7 +55,7 @@ shadowJar {
 
 run.jvmArgs('-noverify', '-XX:TieredStopAtLevel=1')
 
-mainClassName = "com.github.huksley.zeebe.Application"
+mainClassName = "zeebe.workers.Application"
 
 test {
   useJUnitPlatform()

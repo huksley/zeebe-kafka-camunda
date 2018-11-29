@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe
+package zeebe.workers
 
 import io.micronaut.runtime.event.annotation.EventListener
 import io.micronaut.runtime.server.event.ServerStartupEvent
@@ -10,7 +10,7 @@ import java.time.Duration
 import javax.inject.Singleton
 
 @Singleton
-class ZeebeProcessor {
+open class ZeebeProcessor {
     companion object {
         val console = LoggerFactory.getLogger(ZeebeProcessor::class.java.name)
     }
@@ -74,11 +74,9 @@ class ZeebeProcessor {
 
     @EventListener
     @Async
-    private fun onStartup(event: ServerStartupEvent) {
+    open fun onStartup(event: ServerStartupEvent) {
         console.info("Got event: {}", event)
-
         console.info("Got Zeebe client: {}", zeebe)
-
         console.info("Sending processes")
         val wf = zeebe.workflowClient()
         var dep = wf.newDeployCommand().

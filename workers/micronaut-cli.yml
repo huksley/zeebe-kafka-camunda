@@ -1,0 +1,5 @@
+profile: service
+defaultPackage: zeebe.workers
+---
+testFramework: spek
+sourceLanguage: kotlin

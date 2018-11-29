@@ -1,10 +1,10 @@
 micronaut:
   application:
-    name: workers
+    name: zeebe-workers
   executors:
     scheduled:
       type: scheduled
-      core-pool-size: 5
+      core-pool-size: 10
 
 kafka:
   bootstrap:

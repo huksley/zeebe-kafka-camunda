@@ -1,4 +1,4 @@
-package com.github.huksley.zeebe;
+package zeebe.workers;
 
 import com.oracle.svm.core.annotate.Alias;
 import com.oracle.svm.core.annotate.RecomputeFieldValue;
@@ -58,5 +58,8 @@ final class Target_io_netty_handler_codec_compression_ZlibCodecFactory {
   }
 }
 
+/**
+ * Used for Graal native-image command.
+ */
 public class MicronautSubstitutions {
 }
