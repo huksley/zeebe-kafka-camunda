@@ -40,7 +40,7 @@ docker-compose up -d
 
 Type messages on console (one line - one payload) or pipe them
 
-`./kafka kafka-console-producer.sh --broker-list zookeeper:2181 --topic test`
+`./kafka kafka-console-producer.sh --broker-list localhost:9200 --topic test`
 
 **Start test console consumer**
 

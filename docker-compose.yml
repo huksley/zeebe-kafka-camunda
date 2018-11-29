@@ -11,7 +11,7 @@ services:
       - ./data/zookeeper:/data
       - ./data/zookeeperlog:/datalog
     healthcheck:
-      test: [ "CMD-SHELL", "echo INFO | nc localhost 2181" ]
+      test: [ "CMD-SHELL", "echo ruok | nc localhost 2181 | grep imok" ]
       interval: 30s
       timeout: 10s
       retries: 5
@@ -23,8 +23,8 @@ services:
       - "127.0.0.1:9092:9092"
     environment:
       - SERVER_PORT=9092
-      #- KAFKA_BROKER_ID=1001
-      #- KAFKA_RESERVED_BROKER_MAX_ID=1000000
+      - KAFKA_BROKER_ID=321
+      - KAFKA_RESERVED_BROKER_MAX_ID=1000
       - KAFKA_ADVERTISED_HOST_NAME=127.0.0.1
       - KAFKA_ADVERTISED_PORT=9092
       - KAFKA_ZOOKEEPER_CONNECT=zookeeper:2181
