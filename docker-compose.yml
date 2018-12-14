@@ -40,23 +40,10 @@ services:
       interval: 30s
       timeout: 10s
       retries: 3
-  kafka-manager:
-    container_name: zeebe-kafka-man
-    image: sheepkiller/kafka-manager
-    environment:
-      - APPLICATION_SECRET=123
-      - ZK_HOSTS=zookeeper:2181
-      - SERVER_PORT=9000
-    ports:
-      - "127.0.0.1:8185:9000"
-    healthcheck:
-      test: [ "CMD-SHELL", "echo INFO | nc localhost 9000" ]
-      interval: 30s
-      timeout: 10s
-      retries: 3
   zeebe:
     container_name: zeebe
-    image: camunda/zeebe:0.13.1
+    image: camunda/zeebe:0.14.0
+    restart: unless-stopped
     ports:
       # Client API
       - "127.0.0.1:26500:26500"
@@ -67,43 +54,48 @@ services:
     environment:
       - SERVER_PORT=26500
       - ZEEBE_LOG_LEVEL=info
-      - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:h2:tcp://monitor-h2:1521/zeebe"
+      - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:mariadb://monitor-mysql:3306/zeebe"
     volumes:
       - ./data/zeebe:/usr/local/zeebe/data
       - ./data/zeebe-metrics:/usr/local/zeebe/metrics
       - ./logs/zeebe:/usr/local/zeebe/logs
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml:ro
-      - ./zeebe-simple-monitor/exporter/target/zeebe-simple-monitor-exporter-0.9.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar:ro
+      - ./lib/mariadb-java-client-2.3.0.jar:/usr/local/zeebe/lib/mariadb-java-client-2.3.0.jar:ro
+      - ./zeebe-simple-monitor/exporter/target/zeebe-simple-monitor-exporter-0.10.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar:ro
     links:
       - elastic
-      - monitor-h2
-    healthcheck:
-      test: [ "CMD-SHELL", "echo INFO | nc localhost 26500" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
-    restart: unless-stopped
-  monitor-h2:
-    container_name: zeebe-mon-h2
-    image: huksley/h2
+      - monitor-mysql
+# FIXME: Zeebe uses HTTP/2.0 so need to create binary line to check HTTP/2.0 protocol
+#    healthcheck:
+#      test: [ "CMD-SHELL", "echo INFO | nc localhost 26500" ]
+#      interval: 30s
+#      timeout: 10s
+#      retries: 5
+  monitor-mysql:
+    container_name: zeebe-mysql
+    image: mariadb:10.2
     restart: unless-stopped
     environment:
-      - SERVER_PORT=1521
+      - SERVER_PORT=3306
+      - MYSQL_DATABASE=zeebe
+      - MYSQL_USER=zeebe
+      - MYSQL_PASSWORD=123
+      - MYSQL_ROOT_PASSWORD=123
+    ports:
+      - "127.0.0.1:8106:3306"
     volumes:
-      - ./data/h2:/opt/h2-data
-    healthcheck:
-      test: [ "CMD-SHELL", "echo INFO | nc localhost 1521" ]
-      interval: 30s
-      timeout: 10s
-      retries: 5
+      - ./data/mysql:/var/lib/mysql
   monitor:
     container_name: zeebe-mon
-    image: camunda/zeebe-simple-monitor:latest
+    image: camunda/zeebe-simple-monitor:0.10.0
     restart: unless-stopped
     environment:
       - SERVER_PORT=8080
       # Reads existing file created by Zeebee
-      - spring.datasource.url=jdbc:h2:tcp://monitor-h2:1521/zeebe
+      - spring.datasource.url=jdbc:mariadb://monitor-mysql:3306/zeebe
+      - spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
+      - spring.datasource.username=zeebe
+      - spring.datasource.password=123
       - spring.jpa.hibernate.ddl-auto=validate
       - logging.level.root=DEBUG
       - logging.level.org=INFO
@@ -115,11 +107,17 @@ services:
       # URL to Zeebe
       - "io.zeebe.monitor.connectionString=zeebe:26500"
     ports:
-      - "8182:8080"
+      - "127.0.0.1:8182:8080"
     volumes:
       - ./data/zeebe/monitor:/data
+      - ./lib/mariadb-java-client-2.3.0.jar:/usr/local/mariadb-java-client-2.3.0.jar:ro
     links:
-      - monitor-h2
+      - monitor-mysql
+    entrypoint:
+      - java
+      - -Dloader.path="/usr/local/"
+      - "-jar"
+      - /usr/local/zeebe-simple-monitor.jar
     command: --debug
     healthcheck:
       test: [ "CMD-SHELL", "echo INFO | nc localhost 8080" ]
@@ -170,13 +168,15 @@ services:
     ports:
       - "127.0.0.1:8184:5601"
   metabase:
-    image: huksley/metabase
+    image: metabase/metabase:v0.31.2
     container_name: zeebe-metabase
     environment:
       - MB_DB_TYPE=h2
-      - MB_DB_FILE=/data/h2.db
+      - MB_DB_FILE=/data/metabase.h2.db
       - MB_JETTY_PORT=3000
+      - JAVA_TIMEZONE=EEST
     volumes:
       - ./data/metabase:/data
     ports:
       - "127.0.0.1:8183:3000"
+

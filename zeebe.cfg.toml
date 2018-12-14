@@ -105,8 +105,9 @@ className = "io.zeebe.monitor.SimpleMonitorExporter"
 
   # specify jdbc url in environment
   [exporters.args]
-  driverName = "org.h2.Driver"
-  user = "sa"
-  password = ""
+  driverName = "org.mariadb.jdbc.Driver"
+  userName = "zeebe"
+  password = "123"
   batchSize = 100
   batchTimerMilli = 1000
+  createSchema = "/CREATE_SCHEMA_MYSQL.sql"

@@ -1,0 +1,19 @@
+apply plugin: 'base'
+
+repositories {
+    mavenCentral()
+}
+
+configurations {
+    toCopy
+}
+
+dependencies {
+    toCopy 'org.mariadb.jdbc:mariadb-java-client:2.3.0'
+}
+
+task download(type: Copy) {
+    from configurations.toCopy 
+    into 'lib'
+}
+

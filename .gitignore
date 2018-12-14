@@ -1,3 +1,13 @@
 data/**
 logs/**
 zeebe-simple-monitor
+lib
+# temp debug files
+1
+2
+3
+4
+1.*
+2.*
+3.*
+4.*

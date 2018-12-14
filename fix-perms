@@ -1,6 +1,6 @@
 #!/bin/bash
 # Various containers work under different UID/GUID
-# be dangerous and make these directories world readable
+# be reckless and make those directories world readable
 # NOT A PRODUCTION SETUP!
 
 sudo mkdir -p data/elastic

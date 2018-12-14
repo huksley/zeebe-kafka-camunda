@@ -1,6 +1,9 @@
 #!/bin/bash
 
-docker rm -f zeebe zeebe-kafka zeebe-elastic zeebe-nginx zeebe-zookeeper zeebe-mon
+for N in `grep container_name *.yml | cut -d: -f2`; do
+  docker rm -f $N
+done
+
 sudo rm -Rf data/*
 sudo rm -Rf logs/*
 ./fix-perms

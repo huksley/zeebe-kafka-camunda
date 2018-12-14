@@ -8,7 +8,7 @@ The goal of this project is to create private environment to explore, test and a
   * Kafka
   * Kibana
   * Zeebe-simple-monitor
-  * Kotlin workers (WIP)
+  * Kotlin workers
 
 ## Installing and running
 
@@ -19,10 +19,12 @@ git clone https://github.com/huksley/zeebe-simple-monitor
 cd zeebe-simple-monitor
 ./gradlew build
 cd ..
-./fix-perms
-docker-compose up -d
 cd workers
 ./gradlew run
+cd ..
+./gradle download
+./fix-perms
+docker-compose up -d
 ```
 
 Open http://localhost:8080/status to see all processed orders.
