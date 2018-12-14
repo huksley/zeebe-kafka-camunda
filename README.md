@@ -1,6 +1,14 @@
 # Zeebe Kafka project
 
-The goal of this project is to create private environment to explore, test and assess Zeebe.
+Local environment with Proof of concept workflows implemented.
+
+## Open card
+
+![Open card workflow](test-data/open-card.png)
+
+## Purchase order process
+
+![Process order workflow](test-data/order-process.png)
 
 ## Components
 
