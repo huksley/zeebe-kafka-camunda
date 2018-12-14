@@ -66,9 +66,10 @@ To browse H2 database open in browser the printed URL and enter connection URL: 
 
 ## Known links
 
-  * Launchpad http://localhost:8180
-  * Simple Monitor http://localhost:8181
-  * Kibana http://localhost:5601
+  * Launchpad http://localhost:8181
+  * Simple Monitor http://localhost:8182
+  * Kibana http://localhost:8184
+  * Metabase http://localhost:8183
 
 ## Running and trying out
 

@@ -7,134 +7,148 @@
   <title>Launchpad</title>
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" />
   <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
-  <link rel="stylesheet" tpye="text/css" href="https://stackpath.bootstrapcdn.com/bootswatch/4.1.3/flatly/bootstrap.min.css" />
   <style type="text/css">
+    .card-body .card-text {
+      height: 4.5em;
+      overflow: hidden;
+    }
   </style>
 </head>
 
 <body>
   
-  <div class="container">
-    <div class="row">
-        <h2>Zeebe + Kafka + Kotlin = <i class="fa fa-heart"/></i></h2>
-    </div>
+  <div class="px-3 py-3 pb-md-0 mx-auto text-center">
+    <h1 class="display-4">Zeebe + Kafka + Kotlin = <i class="fa fa-heart"/></i></h1>
     
-    <div class="row">
-      <h3>
+    <div class="lead text-muted">
         <span data-config="versionTitle">Development</span> version. Local docker environment for everything.
-      </h3>
     </div>
 
-    <div class="row">
-      <div class="col nav">
-        <a class="btn btn-primary" data-config="href:docsLink" href="about:blank" role="button"><i class="fa fa-file"></i> Documentation</a>
-        &nbsp;
-        <a class="btn btn-primary" data-config="href:gitLink" href="about:blank" role="button"><i class="fa fa-github"></i> GitHub</a>
-      </div>
-    </div>
+    <p>
+      <a href="#" class="btn btn-primary my-2" data-config="href:docsLink" href="about:blank" role="button"><i class="fa fa-file"></i> Documentation</a>
+      <a href="#" class="btn btn-secondary my-2" data-config="href:gitLink" href="about:blank" role="button"><i class="fa fa-github"></i> GitHub</a>
+    </p>
   </div>
 
   <div class="container">
     <div class="row">
-      <div class="col">
-        <ul class="list-group">
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-1">
-                <p class="card-img-top"><i class="fa fa-globe fa-5x"></i></p>
+      <div class="col-md-4 py-3">
+            <div class="card md-4 shadow-sm">
+              <div class="card-header">
+                <p class="card-img-top"><i class="fa fa-globe fa-4x"></i></p>
               </div>
-              <div class="col-10">
-                <h4>Launchpad</h4>
-                <p>
-                  Single page to access all applications deployed in the project.
-                  <span class="badge badge-secondary">nginx</span>
+              <div class="card-body">
+                <h5 class="card-title">Launchpad</h5>
+                <p class="card-text text-muted">
+                  This single page to showcase all applications deployed in the project.
+                  
                 </p>
-                <div class="buttons">
-                  <a class="btn btn-primary" href="http://localhost:8181">Launchpad</a>
-                </div>
-              </div>
-            </div>
-          </li>
-          
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-1">
-                <p class="card-img-top"><i class="fa fa-search fa-5x"></i></p>
-              </div>
-              <div class="col-10">
-                <h4>Elasticsearch</h4>
-                <p>
-                  Elasticsearch is used to gather operational statistics.
-                  <span class="badge badge-secondary">elasticsearch</span>
-                </p>
-                <div class="buttons">
-                  <a class="btn btn-primary" href="http://localhost:9200">Elasticsearch</a>
-                </div>
-              </div>
-            </div>
-          </li>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a class="btn btn-sm  btn-outline-secondary" href="http://localhost:8181">Open</a>
+                      <a class="btn btn-sm  btn-outline-secondary" href="https://github.com/huksley/zeebe-kafka-camunda/tree/master/www">Source code</a>
+                    </div>
 
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-1">
-                <p class="card-img-top"><i class="fa fa-table fa-5x"></i></p>
+                    <small class="text-muted"><span class="badge badge-secondary">nginx</span></small>
+                </div>
               </div>
-              <div class="col-10">
+            </div>
+          </div>
+      <div class="col-md-4 py-3">
+            <div class="card md-4 shadow-sm">
+              <div class="card-header">
+                <p class="card-img-top"><i class="fa fa-search fa-4x"></i></p>
+              </div>
+              <div class="card-body">
+                <div class="card-title">Elasticsearch</div>
+                <p class="card-text">
+                  Elasticsearch is used for storing history and analytics
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a class="btn btn-sm  btn-outline-secondary" href="http://localhost:9200">Cluster status</a>
+                      <a class="btn btn-sm  btn-outline-secondary" href="https://docs.zeebe.io/basics/exporters.html">About exporters</a>
+                    </div>
+                    <small class="text-muted"><span class="badge badge-secondary">elasticsearch</span></small>
+                </div>
+              </div>
+            </div>
+      </div>
+      <div class="col-md-4 py-3">
+
+            <div class="card md-4 shadow-sm">
+              <div class="card-header">
+                <p class="card-img-top"><i class="fa fa-table fa-4x"></i></p>
+              </div>
+              <div class="card-body">
                 <h4>Zeebe-simple-monitor</h4>
-                <p>
+                <p class="card-text">
                   Simple monitor application to deploy BPMN process and discover workflows and instances.
-                  <span class="badge badge-secondary">zeebe</span>
-                  <span class="badge badge-secondary">java</span>
-                  <span class="badge badge-secondary">spring-boot2</span>
+                  
                 </p>
-                <div class="buttons">
-                  <a class="btn btn-primary" href="http://localhost:8182">Launchpad</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a class="btn btn-sm  btn-outline-secondary" href="http://localhost:8182">Open</a>
+                      <a class="btn btn-sm  btn-outline-secondary" href="https://github.com/zeebe-io/zeebe-simple-monitor">Source code</a>
+                    </div>
+                    <small class="text-muted">
+                    <span class="badge badge-secondary">zeebe</span>
+                    <span class="badge badge-secondary">java</span>
+                    <span class="badge badge-secondary">spring-boot2</span>
+                    </small>
                 </div>
               </div>
             </div>
-          </li>
+      </div>
 
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-1">
-                <p class="card-img-top"><i class="fa fa-search fa-5x"></i></p>
+          <div class="col-md-4 py-3">
+            <div class="card md-4 shadow-sm">
+              <div class="card-header">
+                <p class="card-img-top"><i class="fa fa-search fa-4x"></i></p>
               </div>
-              <div class="col-10">
-                <h4>Kibana</h4>
-                <p>
-                  Kibana allows to search Elasticsearch index
-                  <span class="badge badge-secondary">nginx</span>
+              <div class="card-body">
+                <div class="card-title">Kibana</div>
+                <p class="card-text">
+                  Kibana to search exported history
                 </p>
-                <div class="buttons">
-                  <a class="btn btn-primary" href="http://localhost:8184">Launchpad</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a class="btn btn-sm  btn-outline-secondary" href="http://localhost:8184">Open</a>
+                    </div>
+                    <small class="text-muted">
+                        <span class="badge badge-secondary">nginx</span>
+                    </small>
                 </div>
               </div>
             </div>
-          </li>
+          </div>
 
-          <li class="list-group-item">
-            <div class="row">
-              <div class="col-1">
-                <p class="card-img-top"><i class="fa fa-columns fa-5x"></i></p>
+          <div class="col-md-4 py-3">
+            <div class="card md-4 shadow-sm">
+              <div class="card-header">
+                <p class="card-img-top"><i class="fa fa-columns fa-4x"></i></p>
               </div>
-              <div class="col-10">
-                <h4>Metabase</h4>
-                <p>
+              <div class="card-body">
+                <div class="card-title">Metabase</div>
+                <p class="card-text">
                   Metabase allows to query H2 process db and build dashboards.
-                  <span class="badge badge-secondary">clojure</span>
+                  
                 </p>
-                <div class="buttons">
-                  <a class="btn btn-primary" href="http://localhost:8183">Metabase</a>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                      <a class="btn btn-sm  btn-outline-secondary" href="http://localhost:8183">Open</a>
+                    </div> 
+                    <small class="text-muted">
+                        <span class="badge badge-secondary">clojure</span>
+                    </small>
                 </div>
               </div>
             </div>
-          </li>
-        </ul>
+          </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
+  <div class="px-3 py-3 pb-md-0 mx-auto text-center">
     <div class="row">
       <div class="col">
         &copy; 2018 Ruslan Gainutdinov &amp; Futurice

@@ -1,6 +1,6 @@
 appConfig = {
   versionTitle: "${prefix}",
-  docsLink: "https://yandex.ru",
-  gitLink: "https://github.com/huksley"
+  docsLink: "https://docs.zeebe.io/",
+  gitLink: "https://github.com/huksley/zeebe-kafka-camunda"
 };
 
