@@ -13,22 +13,31 @@ The goal of this project is to create private environment to explore, test and a
 ## Installing and running
 
 ```bash
-git clone https://github.com/huksley/zeebe-kafka-camunda
-cd zeebe-kafka-camunda
+# Add simple monitor project inside 
 git clone https://github.com/huksley/zeebe-simple-monitor
 cd zeebe-simple-monitor
 git checkout custom-schema-mysql
 mvn clean package
 cd ..
-cd workers
-./gradlew run
-cd ..
-./gradle download
+
+# Download necessary JARs for Zeebe
+./gradlew download
+
+# Prepare docker data folders and run docker containers
 ./fix-perms
 docker-compose up -d
+
+# Run workers Kotlin project
+cd workers
+./gradlew run
 ```
 
-Open http://localhost:8080/status to see all processed orders.
+## Available services
+
+  * Launchpad http://localhost:8181
+  * Simple Monitor http://localhost:8182
+  * Kibana http://localhost:8184
+  * Metabase http://localhost:8183
 
 ## Commands
 
@@ -60,14 +69,6 @@ Will output incoming messages - one message per line.
 
 `mysql -h 127.0.0.1 -P 8106 -u zeebe -p123 zeebe`
 
-
-## Known links
-
-  * Launchpad http://localhost:8181
-  * Simple Monitor http://localhost:8182
-  * Kibana http://localhost:8184
-  * Metabase http://localhost:8183
-
 ## Running and trying out
 
   * Bring everything
@@ -84,8 +85,6 @@ Will output incoming messages - one message per line.
 
   * https://docs.zeebe.io/basics/exporters.html
   * https://forum.zeebe.io/t/simple-monitor-ui/186
-  * http://www.searchkit.co/
   * https://github.com/zeebe-io/zeebe-get-started-java-client
-  * https://github.com/yaronn/blessed-contrib
-  * ?
+
 
