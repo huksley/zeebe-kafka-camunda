@@ -10,7 +10,7 @@ interface Zeebe {
   /**
    * Deploys new version of workflow
    */
-  fun deployProcessWorkflow(processId: String, resourceFile: String): ZeebeFuture<DeploymentEvent>
+  fun deployProcessWorkflow(processId: String, resourceFiles: List<String>): ZeebeFuture<DeploymentEvent>
 
   fun createWorkflowInstance(processId: String, payload: Map<String,Any>): ZeebeFuture<WorkflowInstanceEvent>
 

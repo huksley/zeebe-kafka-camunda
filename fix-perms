@@ -7,6 +7,5 @@ sudo mkdir -p data/elastic
 sudo chmod a+rwX data/elastic
 sudo mkdir -p logs/elastic
 sudo chmod a+rwX logs/elastic
-sudo mkdir -p data/h2
-sudo chmod a+rwX data/h2
-
+sudo mkdir -p data/mysql
+sudo chmod a+rwX data/mysql

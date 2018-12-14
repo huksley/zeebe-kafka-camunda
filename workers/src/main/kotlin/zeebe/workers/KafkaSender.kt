@@ -1,40 +1,29 @@
 package zeebe.workers
 
-import com.devskiller.jfairy.Fairy
-import io.micronaut.retry.annotation.CircuitBreaker
-import io.micronaut.runtime.event.annotation.EventListener
-import io.micronaut.runtime.server.event.ServerStartupEvent
-import io.micronaut.scheduling.annotation.Async
-import io.micronaut.scheduling.annotation.Scheduled
+import com.devskiller.jfairy.producer.person.Person
+import io.micronaut.configuration.kafka.annotation.KafkaClient
+import io.micronaut.configuration.kafka.annotation.KafkaKey
+import io.micronaut.configuration.kafka.annotation.Topic
+import io.micronaut.messaging.annotation.Body
+import io.micronaut.messaging.annotation.Header
 import org.slf4j.LoggerFactory
-import java.net.InetAddress
-import java.util.*
-import javax.inject.Inject
-import javax.inject.Singleton
+import zeebe.workers.order.Order
 
-@Singleton
-open class KafkaSender {
-  val log = LoggerFactory.getLogger(javaClass)
+/**
+ * Single interface to send messages to Kafka
+ */
+@KafkaClient
+interface KafkaSender {
 
-  @Inject
-  lateinit var sender: KafkaOrderSender
+  @Topic("order")
+  fun sendOrder(@KafkaKey id: String,
+                @Header("X-Order-ID") orderId: String,
+                @Header("X-From") from: String,
+                @Header("X-Source") source: String, @Body order: Order)
 
-  @Inject
-  lateinit var meta: MetaSink
-
-  val fairy = Fairy.create(Locale.GERMANY)
-
-  @CircuitBreaker
-  @Scheduled(fixedDelay = "100ms")
-  open fun tryResend() {
-    val person = fairy.person()
-    log.trace("Sending new order to kafka {}", person)
-    meta.sendKafka ++
-    sender.sendOrder(System.currentTimeMillis().toString(),
-      "X" + System.currentTimeMillis(),
-      InetAddress.getLocalHost().hostName,
-      "kotlin-micronaut-kafka",
-      person)
-
-  }
+  @Topic("card-application")
+  fun sendCardApplication(@KafkaKey id: String,
+                @Header("X-Application-ID") applicationId: String,
+                @Header("X-From") from: String,
+                @Header("X-Source") source: String, @Body person: Person)
 }

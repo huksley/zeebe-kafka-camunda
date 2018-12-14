@@ -2,6 +2,7 @@ package zeebe.workers
 
 import io.zeebe.client.ZeebeClient
 import io.zeebe.client.api.ZeebeFuture
+import io.zeebe.client.api.commands.DeployWorkflowCommandStep1
 import io.zeebe.client.api.commands.WorkflowResource
 import io.zeebe.client.api.events.DeploymentEvent
 import io.zeebe.client.api.events.WorkflowInstanceEvent
@@ -40,10 +41,17 @@ class ZeebeProvider: Zeebe {
       open()
   }
 
-  override fun deployProcessWorkflow(processId: String, resourceFile: String): ZeebeFuture<DeploymentEvent> {
+  override fun deployProcessWorkflow(processId: String, resourceFiles: List<String>): ZeebeFuture<DeploymentEvent> {
     val wf = client.workflowClient()
-    return wf.newDeployCommand().
-      addResourceFile(resourceFile).
-      send()
+    var cmd = wf.newDeployCommand()
+    var step2: DeployWorkflowCommandStep1.DeployWorkflowCommandBuilderStep2? = null
+    for (f in resourceFiles) {
+      if (step2 == null) {
+        step2 = cmd.addResourceFile(f)
+      } else {
+        step2 = step2.addResourceFile(f)
+      }
+    }
+    return step2!!.send()
   }
 }

@@ -1,4 +1,4 @@
-package zeebe.workers
+package zeebe.workers.order
 
 import io.micronaut.context.annotation.Factory
 import io.micronaut.runtime.event.annotation.EventListener
@@ -7,47 +7,31 @@ import io.micronaut.scheduling.annotation.Async
 import io.micronaut.scheduling.annotation.Scheduled
 import io.zeebe.client.api.subscription.JobHandler
 import org.slf4j.LoggerFactory
-import java.net.Inet4Address
-import java.net.InetAddress
+import zeebe.workers.KafkaMeta
+import zeebe.workers.Zeebe
 import javax.inject.Inject
 import javax.inject.Singleton
 
-@Singleton
-@Factory
-open class ZeebeProcessor {
+//DONTSTART@Singleton
+open class OrderWorkers {
   val log = LoggerFactory.getLogger(javaClass)
 
   @Inject
   lateinit var zeebe: Zeebe
 
   @Inject
-  lateinit var meta: MetaSink
+  lateinit var meta: OrderMeta
 
-  @Scheduled(fixedDelay = "100000000s")
-  fun createInstances() {
-    var payload = HashMap<String, Any>()
-    payload.put("orderId", System.currentTimeMillis())
-    payload.put("from", InetAddress.getLocalHost().hostName)
-    payload.put("source", "ZeebeProcessor")
-    //log.info("Creating order ${payload}")
-    //zeebe.createWorkflowInstance("order-process", payload).join()
-  }
-
-  var lastValue = 0;
-
-  @Scheduled(fixedDelay = "1s")
+  //DONTSTART@Scheduled(fixedDelay = "1s")
   fun dumpMeta() {
     val ver = zeebe.getWorkflow("order-process").join().version
-    log.info("Workflow v.${ver} processed payment ${meta.paymentProcessed} dt ${meta.paymentProcessed - lastValue}, send to kafka ${meta.sendKafka} received from kafka ${meta.receivedKafka}")
-    lastValue = meta.paymentProcessed
+    log.info("Workflow v.${ver} processed payment ${meta.paymentProcessed} dt ${meta.paymentProcessed - meta.latestPaymentProcessed}")
+    meta.latestPaymentProcessed = meta.paymentProcessed
   }
 
   @EventListener
   @Async
   open fun onStartup(event: ServerStartupEvent) {
-    val ev = zeebe.deployProcessWorkflow("order-process", "../test-data/order-process.bpmn").join()
-    log.info("Got deployment response: ${ev}")
-
     zeebe.createJobClient("payment-service", JobHandler { jobClient, job ->
       run {
         val headers = job.customHeaders

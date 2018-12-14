@@ -1,13 +1,15 @@
-package zeebe.workers
+package zeebe.workers.order
 
 import javax.inject.Singleton
 
+/**
+ * Dumb statistics about orders
+ */
 @Singleton
-class MetaSink {
+class OrderMeta {
   var paymentProcessed = 0
   var returnedPayment = 0
   var assembledOrders = 0
   var shippedOrders = 0
-  var sendKafka = 0
-  var receivedKafka = 0
+  var latestPaymentProcessed = 0
 }

@@ -47,7 +47,7 @@ class ZeebeNoop: Zeebe {
 
   }
 
-  override fun deployProcessWorkflow(processId: String, resourceFile: String): ZeebeFuture<DeploymentEvent> {
+  override fun deployProcessWorkflow(processId: String, resourceFiles: List<String>): ZeebeFuture<DeploymentEvent> {
     log.info("noop deployProcessWorkflow()")
     return ZeebeFutureEmpty<DeploymentEvent>()
   }
