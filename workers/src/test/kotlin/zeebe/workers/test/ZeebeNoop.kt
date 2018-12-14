@@ -2,6 +2,7 @@ package zeebe.workers.test
 
 import io.micronaut.context.annotation.Primary
 import io.zeebe.client.api.ZeebeFuture
+import io.zeebe.client.api.commands.WorkflowResource
 import io.zeebe.client.api.events.DeploymentEvent
 import io.zeebe.client.api.events.WorkflowInstanceEvent
 import io.zeebe.client.api.subscription.JobHandler
@@ -11,6 +12,8 @@ import java.util.concurrent.TimeUnit
 
 @Primary
 class ZeebeNoop: Zeebe {
+
+
   val log = LoggerFactory.getLogger(javaClass)
 
   class ZeebeFutureEmpty<T>: ZeebeFuture<T> {
@@ -56,5 +59,10 @@ class ZeebeNoop: Zeebe {
 
   override fun createJobClient(jobType: String, handler: JobHandler) {
     log.info("noop createJobClient()")
+  }
+
+  override fun getWorkflow(processId: String): ZeebeFuture<WorkflowResource> {
+    log.info("noop getWorkflow")
+    return ZeebeFutureEmpty<WorkflowResource>()
   }
 }

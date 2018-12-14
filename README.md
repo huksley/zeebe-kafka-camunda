@@ -56,14 +56,10 @@ Will output incoming messages - one message per line.
 
 `./kafka kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic test`
 
-**Start H2 console**
+**Open monitor MySQL database**
 
-```
-> docker exec -ti zeebe-mon-h2 java -jar bin/h2-1.4.197.jar -web -webAllowOthers
-Web Console server running at http://172.24.0.X:8082 (others can connect)
-```
+`mysql -h 127.0.0.1 -P 8106 -u zeebe -p123 zeebe`
 
-To browse H2 database open in browser the printed URL and enter connection URL: `jdbc:h2:tcp://monitor-h2:1521/zeebe`
 
 ## Known links
 

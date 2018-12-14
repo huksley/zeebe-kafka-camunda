@@ -23,7 +23,7 @@ open class ZeebeProcessor {
   @Inject
   lateinit var meta: MetaSink
 
-  @Scheduled(fixedDelay = "")
+  @Scheduled(fixedDelay = "100000000s")
   fun createInstances() {
     var payload = HashMap<String, Any>()
     payload.put("orderId", System.currentTimeMillis())
@@ -37,7 +37,8 @@ open class ZeebeProcessor {
 
   @Scheduled(fixedDelay = "1s")
   fun dumpMeta() {
-    log.info("Processed payment ${meta.paymentProcessed} dt ${meta.paymentProcessed - lastValue}, send to kafka ${meta.sendKafka} received from kafka ${meta.receivedKafka}")
+    val ver = zeebe.getWorkflow("order-process").join().version
+    log.info("Workflow v.${ver} processed payment ${meta.paymentProcessed} dt ${meta.paymentProcessed - lastValue}, send to kafka ${meta.sendKafka} received from kafka ${meta.receivedKafka}")
     lastValue = meta.paymentProcessed
   }
 

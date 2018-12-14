@@ -9,3 +9,11 @@ micronaut:
 kafka:
   bootstrap:
     servers: localhost:9092
+
+jackson:
+  serialization:
+    indentOutput: true
+    writeDatesAsTimestamps: false
+  deserialization:
+    useBigIntegerForInts: true
+    failOnUnknownProperties: false

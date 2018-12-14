@@ -25,9 +25,8 @@ open class KafkaSender {
   val fairy = Fairy.create(Locale.GERMANY)
 
   @CircuitBreaker
-  @Scheduled(fixedDelay = "10ms")
+  @Scheduled(fixedDelay = "100ms")
   open fun tryResend() {
-    //if (true) return;
     val person = fairy.person()
     log.trace("Sending new order to kafka {}", person)
     meta.sendKafka ++

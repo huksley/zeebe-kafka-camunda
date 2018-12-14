@@ -2,6 +2,7 @@ package zeebe.workers
 
 import io.zeebe.client.ZeebeClient
 import io.zeebe.client.api.ZeebeFuture
+import io.zeebe.client.api.commands.WorkflowResource
 import io.zeebe.client.api.events.DeploymentEvent
 import io.zeebe.client.api.events.WorkflowInstanceEvent
 import io.zeebe.client.api.subscription.JobHandler
@@ -21,6 +22,11 @@ class ZeebeProvider: Zeebe {
       latestVersion().
       payload(payload).
       send()
+  }
+
+  override fun getWorkflow(processId: String): ZeebeFuture<WorkflowResource> {
+    val wf = client.workflowClient()
+    return wf.newResourceRequest().bpmnProcessId(processId).latestVersion().send()
   }
 
   override fun createJobClient(jobType: String, handler: JobHandler) {

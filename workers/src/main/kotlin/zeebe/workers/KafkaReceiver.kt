@@ -9,6 +9,7 @@ import io.micronaut.configuration.kafka.annotation.OffsetReset
 import io.micronaut.configuration.kafka.annotation.Topic
 import io.micronaut.messaging.annotation.Body
 import io.micronaut.messaging.annotation.Header
+import io.micronaut.retry.annotation.CircuitBreaker
 import org.slf4j.LoggerFactory
 import java.net.InetAddress
 import javax.inject.Inject
@@ -26,6 +27,7 @@ open class KafkaReceiver {
   @Inject
   lateinit var meta: MetaSink
 
+  @CircuitBreaker
   @Topic("test")
   open fun receive(@KafkaKey id: String,
                    @Header("X-Order-ID") orderId: String,
