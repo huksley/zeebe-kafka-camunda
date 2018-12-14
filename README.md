@@ -17,7 +17,8 @@ git clone https://github.com/huksley/zeebe-kafka-camunda
 cd zeebe-kafka-camunda
 git clone https://github.com/huksley/zeebe-simple-monitor
 cd zeebe-simple-monitor
-./gradlew build
+git checkout custom-schema-mysql
+mvn clean package
 cd ..
 cd workers
 ./gradlew run

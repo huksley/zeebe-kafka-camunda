@@ -60,11 +60,17 @@ services:
       - ./data/zeebe-metrics:/usr/local/zeebe/metrics
       - ./logs/zeebe:/usr/local/zeebe/logs
       - ./zeebe.cfg.toml:/usr/local/zeebe/conf/zeebe.cfg.toml:ro
+      - ./wait-for:/usr/local/wait-for:ro
       - ./lib/mariadb-java-client-2.3.0.jar:/usr/local/zeebe/lib/mariadb-java-client-2.3.0.jar:ro
-      - ./zeebe-simple-monitor/exporter/target/zeebe-simple-monitor-exporter-0.10.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar:ro
+      - ./zeebe-simple-monitor/exporter/target/zeebe-simple-monitor-exporter-0.11.0-SNAPSHOT.jar:/usr/local/zeebe/lib/zeebe-simple-monitor-exporter.jar:ro
     links:
       - elastic
       - monitor-mysql
+    entrypoint:
+      - /usr/local/wait-for
+      - "monitor-mysql:3306"
+      - "--"
+      - "/usr/local/wait-for elastic:9200 -- /sbin/tini -- /usr/local/bin/startup.sh"
 # FIXME: Zeebe uses HTTP/2.0 so need to create binary line to check HTTP/2.0 protocol
 #    healthcheck:
 #      test: [ "CMD-SHELL", "echo INFO | nc localhost 26500" ]
@@ -85,40 +91,31 @@ services:
       - "127.0.0.1:8106:3306"
     volumes:
       - ./data/mysql:/var/lib/mysql
+      - ./mariadb.conf:/etc/mysql/conf.d/zeebe.cnf
   monitor:
     container_name: zeebe-mon
     image: camunda/zeebe-simple-monitor:0.10.0
     restart: unless-stopped
     environment:
       - SERVER_PORT=8080
-      # Reads existing file created by Zeebee
-      - spring.datasource.url=jdbc:mariadb://monitor-mysql:3306/zeebe
-      - spring.datasource.driver-class-name=org.mariadb.jdbc.Driver
-      - spring.datasource.username=zeebe
-      - spring.datasource.password=123
-      - spring.jpa.hibernate.ddl-auto=validate
-      - logging.level.root=DEBUG
-      - logging.level.org=INFO
-      - logging.level.com=INFO
-      - logging.level.sun=INFO
-      - logging.level.org.springframework.boot.autoconfigure=ERROR
-      - logging.org.hibernate=DEBUG
-      - logging.org.h2=DEBUG
-      # URL to Zeebe
-      - "io.zeebe.monitor.connectionString=zeebe:26500"
     ports:
       - "127.0.0.1:8182:8080"
     volumes:
       - ./data/zeebe/monitor:/data
-      - ./lib/mariadb-java-client-2.3.0.jar:/usr/local/mariadb-java-client-2.3.0.jar:ro
+      - ./zeebe-simple-monitor/app/target/zeebe-simple-monitor-app-0.11.0-SNAPSHOT.jar:/usr/local/zeebe-simple-monitor.jar
+      - ./wait-for:/usr/local/wait-for:ro
+      - ./simple-monitor.properties:/usr/local/simple-monitor.properties:ro
     links:
       - monitor-mysql
     entrypoint:
+      - /usr/local/wait-for
+      - "zeebe:26500"
+      - "--"
       - java
-      - -Dloader.path="/usr/local/"
       - "-jar"
-      - /usr/local/zeebe-simple-monitor.jar
-    command: --debug
+      - "/usr/local/zeebe-simple-monitor.jar"
+      - "--debug"
+      - "--spring.config.location=classpath:/application.properties,file:/usr/local/simple-monitor.properties"
     healthcheck:
       test: [ "CMD-SHELL", "echo INFO | nc localhost 8080" ]
       interval: 30s

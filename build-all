@@ -1,0 +1,19 @@
+#!/bin/bash
+set -e
+
+./cleanup
+
+if [ ! -d zeebe-simple-monitor ]; then
+  git clone https://github.com/huksley/zeebe-simple-monitor
+fi
+
+cd zeebe-simple-monitor
+git checkout custom-schema-mysql
+mvn clean package
+cd ..
+cd workers
+#./gradlew run
+cd ..
+./gradlew download
+./fix-perms
+docker-compose up -d
