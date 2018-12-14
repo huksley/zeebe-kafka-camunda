@@ -20,7 +20,7 @@ repositories {
 
 dependencyManagement {
   imports {
-    mavenBom 'io.micronaut:micronaut-bom:1.0.1'
+    mavenBom "io.micronaut:micronaut-bom:${micronautVersion}"
   }
 }
 
@@ -34,6 +34,9 @@ dependencies {
   compile "io.micronaut:micronaut-http-server-netty"
   compile "org.jetbrains.kotlin:kotlin-stdlib-jdk8:${kotlinVersion}"
   compile "org.jetbrains.kotlin:kotlin-reflect:${kotlinVersion}"
+  implementation "io.reactivex.rxjava2:rxkotlin:${rxKotlinVersion}"
+  implementation "io.reactivex.rxjava2:rxjava:${rxJavaVersion}"
+  compile 'com.devskiller:jfairy:0.6.2'
   compile "io.micronaut:micronaut-runtime"
   compileOnly "com.oracle.substratevm:svm"
   kapt "io.micronaut:micronaut-inject-java"

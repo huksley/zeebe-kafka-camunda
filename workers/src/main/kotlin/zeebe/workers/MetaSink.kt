@@ -8,4 +8,6 @@ class MetaSink {
   var returnedPayment = 0
   var assembledOrders = 0
   var shippedOrders = 0
+  var sendKafka = 0
+  var receivedKafka = 0
 }
