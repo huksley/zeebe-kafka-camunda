@@ -27,13 +27,13 @@ open class FakeCardApplicationProducer {
   private val fairy: Fairy = Fairy.create(Locale.GERMANY)
 
   @CircuitBreaker
-  @Scheduled(fixedDelay = "100ms")
+  @Scheduled(fixedDelay = "5ms")
   open fun trySendCardApplication() {
     val person = fairy.person()
-    log.trace("Sending new order to kafka {}", person)
+    log.trace("Sending new card application to kafka {}", person)
     meta.sent.incrementAndGet()
     sender.sendCardApplication(System.currentTimeMillis().toString(),
-      "X" + System.currentTimeMillis(),
+      UUID.randomUUID().toString(),
       InetAddress.getLocalHost().hostName,
       "kotlin-micronaut-kafka",
       person)

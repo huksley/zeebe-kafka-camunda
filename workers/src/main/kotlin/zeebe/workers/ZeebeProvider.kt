@@ -41,6 +41,10 @@ class ZeebeProvider: Zeebe {
       open()
   }
 
+  override fun sendMessage(messageId: String, correlationId: String) {
+    client.workflowClient().newPublishMessageCommand().messageName(messageId).correlationKey(correlationId).send()
+  }
+
   override fun deployProcessWorkflow(processId: String, resourceFiles: List<String>): ZeebeFuture<DeploymentEvent> {
     val wf = client.workflowClient()
     var cmd = wf.newDeployCommand()

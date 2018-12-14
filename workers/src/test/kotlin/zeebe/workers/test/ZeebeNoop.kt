@@ -13,7 +13,6 @@ import java.util.concurrent.TimeUnit
 @Primary
 class ZeebeNoop: Zeebe {
 
-
   val log = LoggerFactory.getLogger(javaClass)
 
   class ZeebeFutureEmpty<T>: ZeebeFuture<T> {
@@ -45,6 +44,10 @@ class ZeebeNoop: Zeebe {
       TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
+  }
+
+  override fun sendMessage(messageId: String, correlationId: String) {
+    log.info("noop sendMessage()")
   }
 
   override fun deployProcessWorkflow(processId: String, resourceFiles: List<String>): ZeebeFuture<DeploymentEvent> {

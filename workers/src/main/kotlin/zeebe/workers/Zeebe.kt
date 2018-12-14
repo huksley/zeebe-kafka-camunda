@@ -17,4 +17,6 @@ interface Zeebe {
   fun createJobClient(jobType: String, handler: JobHandler)
 
   fun getWorkflow(processId: String): ZeebeFuture<WorkflowResource>
+
+  fun sendMessage(messageId: String, correlationId: String)
 }

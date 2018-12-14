@@ -1,5 +1,6 @@
 package zeebe.workers.card
 
+import io.micronaut.context.event.ApplicationEventPublisher
 import io.micronaut.runtime.event.annotation.EventListener
 import io.micronaut.runtime.server.event.ServerStartupEvent
 import io.micronaut.scheduling.annotation.Async
@@ -23,10 +24,25 @@ open class CardApplicationWorkers {
   @Inject
   lateinit var meta: CardMeta
 
+  @Inject
+  lateinit var eventPublisher: ApplicationEventPublisher
+
+  val random = Random()
+
+  class SendMessage (val messageId: String, val correlationId: String)
+
   @Scheduled(fixedDelay = "1s")
   fun dumpMeta() {
     val ver = zeebe.getWorkflow("open-card").join().version
-    log.info("Workflow v.${ver} kyc: ${meta.kycDone} score: ${meta.scoreDone} msg: ${meta.msgDone} createContract: ${meta.createContractDone} scoreRate: ${meta.scoreRateDone}")
+    log.info("Open card stat version ${ver} kyc: ${meta.kycDone} score: ${meta.scoreDone} msg: ${meta.msgDone} createContract: ${meta.createContractDone} scoreRate: ${meta.scoreRateDone} contractConfirm: ${meta.contractConfirmDone} issueCard: ${meta.issueCardDone}")
+  }
+
+  @EventListener
+  @Async
+  open fun onSendMessage(event: SendMessage) {
+    log.trace("Sending message to Zeebe: ${event.messageId}, ${event.correlationId}")
+    meta.contractConfirmDone ++
+    zeebe.sendMessage(event.messageId, event.correlationId)
   }
 
   @EventListener
@@ -39,7 +55,7 @@ open class CardApplicationWorkers {
         log.trace("KYC service {} headers {} payload {}", job.key, headers, inPayload)
         val outPayload = mapOf(
           "kycReference" to UUID.randomUUID().toString(),
-          "kycStatus" to if (System.currentTimeMillis() % 4L != 0L) "SUCCESS" else "FAILURE"
+          "kycStatus" to if (random.nextInt(4) != 3) "SUCCESS" else "FAILURE" // 1/4 failure
         )
         meta.kycDone ++
         log.trace("KYC complete: {}", outPayload)
@@ -52,10 +68,11 @@ open class CardApplicationWorkers {
         val headers = job.customHeaders
         val inPayload = job.payloadAsMap
         log.trace("Score service {} headers {} payload {}", job.key, headers, inPayload)
+        val score = random.nextInt(700) + 300
         val outPayload = mapOf(
           "scoreReference" to UUID.randomUUID().toString(),
-          "scoreStatus" to if (System.currentTimeMillis() % 4L != 0L) "SUCCESS" else "FAILURE",
-          "score" to BigDecimal(500)
+          "scoreStatus" to if (score < 400) "BELOW_MIN" else (if (score > 700) "WHITE" else "GRAY"),
+          "score" to BigDecimal(score)
         )
         meta.scoreDone ++
         log.trace("Score complete: {}", outPayload)
@@ -88,7 +105,7 @@ open class CardApplicationWorkers {
           ),
           "contractReference" to UUID.randomUUID().toString()
         )
-        meta.msgDone ++
+        meta.createContractDone ++
         log.trace("Create contract complete: {}", outPayload)
         jobClient.newCompleteCommand(job.key).payload(outPayload).send().join()
       }
@@ -104,8 +121,26 @@ open class CardApplicationWorkers {
         val outPayload = mapOf(
           "contract" to inPayload["contract"]
         )
-        meta.msgDone ++
+        meta.scoreRateDone ++
         log.trace("Score determine rate complete: {}", outPayload)
+        jobClient.newCompleteCommand(job.key).payload(outPayload).send().join()
+        // Fake async message external
+        eventPublisher.publishEvent(SendMessage("contract-confirm", inPayload["applicationId"] as String))
+      }
+    })
+
+    zeebe.createJobClient("issue-card", JobHandler { jobClient, job ->
+      run {
+        val headers = job.customHeaders
+        val inPayload = job.payloadAsMap
+        log.trace("Issue card service {} headers {} payload {}", job.key, headers, inPayload)
+        val contract: MutableMap<String,Any> = inPayload["contract"] as MutableMap<String, Any>
+        contract["rate"] = BigDecimal("12.25")
+        val outPayload = mapOf(
+          "no" to "none"
+        )
+        meta.issueCardDone ++
+        log.trace("Issue card complete: {}", outPayload)
         jobClient.newCompleteCommand(job.key).payload(outPayload).send().join()
       }
     })
