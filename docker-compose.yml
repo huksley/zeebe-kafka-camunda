@@ -146,14 +146,14 @@ services:
       interval: 30s
       timeout: 10s
       retries: 5
-  www:
+  launchpad:
     image: nginx
     container_name: zeebe-nginx
     environment:
       - SERVER_PORT=8080
     volumes:
       - ./nginx.conf:/etc/nginx/conf.d/default.conf:ro
-      - ./www:/var/www:ro
+      - ./launchpad:/var/www:ro
     ports:
       - "127.0.0.1:8181:8080"
   kibana:
