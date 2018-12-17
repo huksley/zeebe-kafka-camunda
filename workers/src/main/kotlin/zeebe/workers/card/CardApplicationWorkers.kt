@@ -32,6 +32,7 @@ open class CardApplicationWorkers {
   class SendMessage (val messageId: String, val correlationId: String)
 
   @Scheduled(fixedDelay = "1s")
+  @Suppress("unused")
   fun dumpMeta() {
     val ver = zeebe.getWorkflow("open-card").join().version
     log.info("Open card stat version ${ver} kyc: ${meta.kycDone} score: ${meta.scoreDone} msg: ${meta.msgDone} createContract: ${meta.createContractDone} scoreRate: ${meta.scoreRateDone} contractConfirm: ${meta.contractConfirmDone} issueCard: ${meta.issueCardDone}")
@@ -39,6 +40,7 @@ open class CardApplicationWorkers {
 
   @EventListener
   @Async
+  @Suppress("unused")
   open fun onSendMessage(event: SendMessage) {
     log.trace("Sending message to Zeebe: ${event.messageId}, ${event.correlationId}")
     meta.contractConfirmDone ++
@@ -47,6 +49,7 @@ open class CardApplicationWorkers {
 
   @EventListener
   @Async
+  @Suppress("unused")
   open fun onStartup(event: ServerStartupEvent) {
     zeebe.createJobClient("kyc", JobHandler { jobClient, job ->
       run {

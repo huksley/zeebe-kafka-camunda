@@ -42,7 +42,6 @@ cd workers
 
 ## Available services
 
-  * Launchpad http://localhost:8181
   * Simple Monitor http://localhost:8182
   * Kibana http://localhost:8184
   * Metabase http://localhost:8183
@@ -76,18 +75,6 @@ Will output incoming messages - one message per line.
 **Open monitor MySQL database**
 
 `mysql -h 127.0.0.1 -P 8106 -u zeebe -p123 zeebe`
-
-## Running and trying out
-
-  * Bring everything
-  * Open simple monitor
-  * Upload BPMN process test-data/order-process.bpmn using simple monitor
-  * Follow Zeebe quick start instructions https://docs.zeebe.io/introduction/quickstart.html
-  * Create kibana source using zeebe-record-* pattern, timestamp column
-  * Explore current tasks using Kibana, metadata.intent is a status of the job
-  * Run endless loop of tasks 
-  
-`while true; do  ./zbctl create instance order-process --payload '{"orderId": 1234}'; done;`
 
 ## Links
 

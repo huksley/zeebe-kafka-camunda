@@ -24,10 +24,13 @@ open class FakeCardApplicationProducer {
   @Inject
   lateinit var meta: KafkaMeta
 
+  /**
+   * Random customer detail factoryd
+   */
   private val fairy: Fairy = Fairy.create(Locale.GERMANY)
 
   @CircuitBreaker
-  @Scheduled(fixedDelay = "5ms")
+  @Scheduled(fixedDelay = "10ms")
   open fun trySendCardApplication() {
     val person = fairy.person()
     log.trace("Sending new card application to kafka {}", person)
