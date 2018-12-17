@@ -6,9 +6,9 @@ Local environment with Proof of concept workflows implemented.
 
 ![Open card workflow](test-data/open-card.png)
 
-## Purchase order process
+## All components
 
-![Process order workflow](test-data/order-process.png)
+![Launchpad](launchpad/launchpad.png)
 
 ## Components
 
