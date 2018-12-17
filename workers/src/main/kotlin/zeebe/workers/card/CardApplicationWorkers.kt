@@ -15,6 +15,7 @@ import javax.inject.Inject
 import javax.inject.Singleton
 
 @Singleton
+@Suppress("unused")
 open class CardApplicationWorkers {
   val log = LoggerFactory.getLogger(javaClass)
 

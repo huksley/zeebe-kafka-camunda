@@ -4,6 +4,6 @@ for N in `grep container_name *.yml | cut -d: -f2`; do
   docker rm -f $N
 done
 
-sudo rm -Rf data/*
+sudo rm -Rf data/kafka data/mysql data/zeebe data/zeebe-metrics data/zookeeper data/zookeeperlog
 sudo rm -Rf logs/*
 ./fix-perms

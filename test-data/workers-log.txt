@@ -1,0 +1,1577 @@
+/home/rgai/usr/jdk1.8.0_171/bin/java -agentlib:jdwp=transport=dt_socket,address=127.0.0.1:46501,suspend=y,server=n -javaagent:/home/rgai/usr/idea/plugins/Groovy/lib/agent/gragent.jar -javaagent:/home/rgai/usr/idea/lib/rt/debugger-agent.jar -Dfile.encoding=UTF-8 -classpath /home/rgai/usr/jdk1.8.0_171/jre/lib/charsets.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/deploy.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/cldrdata.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/dnsns.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/jaccess.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/jfxrt.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/localedata.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/nashorn.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/sunec.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/sunjce_provider.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/sunpkcs11.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/ext/zipfs.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/javaws.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/jce.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/jfr.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/jfxswt.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/jsse.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/management-agent.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/plugin.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/resources.jar:/home/rgai/usr/jdk1.8.0_171/jre/lib/rt.jar:/home/rgai/Projects/zeebe-kafka-camunda/workers/out/production/classes:/home/rgai/Projects/zeebe-kafka-camunda/workers/out/production/resources:/home/rgai/Projects/zeebe-kafka-camunda/workers/build/tmp/kapt3/classes/main:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut.configuration/micronaut-kafka/1.0.1/4e3a06df44a37306146fb6bfb37c1bf2dc4b4c3c/micronaut-kafka-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.apache.kafka/kafka-clients/1.1.0/87ab9fd8c521eb2573d54dac313d958694b12d7d/kafka-clients-1.1.0.jar:/home/rgai/.m2/repository/io/zeebe/zeebe-client-java/0.14.0/zeebe-client-java-0.14.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http-client/1.0.1/11c6553c1da81eafb6b735896a87a928a2147b55/micronaut-http-client-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http-server-netty/1.0.1/affa3fdca1d3003decd9357b11946fceca4887d5/micronaut-http-server-netty-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk8/1.3.10/71d0fa967493eb76648b575edf1762cb2d0c7f10/kotlin-stdlib-jdk8-1.3.10.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-reflect/1.3.10/dd02865be0351707554b16a896b766b2396cdafa/kotlin-reflect-1.3.10.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.devskiller/jfairy/0.6.2/93ab7607801ccf3c8554e8689df4021fd046c051/jfairy-0.6.2.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-messaging/1.0.1/b57ea65119c3f54bdf5a932c6b6fac791f892dc8/micronaut-messaging-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http-server/1.0.1/74d2e877db906e5c471d8b50f048a4c128fa2451/micronaut-http-server-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-runtime/1.0.1/339cf5b60aecd766b45c748c02ccc408aa5c0d57/micronaut-runtime-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.module/jackson-module-kotlin/2.9.4.1/6542720c526997e74bb4220b3925e6c12a24b631/jackson-module-kotlin-2.9.4.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxkotlin/2.3.0/37d8fb3406df28bfc84fa0234b11067931369bc5/rxkotlin-2.3.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-graal/1.0.1/b072f8bee2bdf071bb7122500e17ad4db1cdeab1/micronaut-graal-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http-netty/1.0.1/2b6afe5359cfc9dce5ea083cd70663bcf3daaed6/micronaut-http-netty-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-websocket/1.0.1/76b9f4d3ec5a9402d7c3a5620f66ffd6153b6feb/micronaut-websocket-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.reactivex.rxjava2/rxjava/2.2.4/16ae5ef44181829f8f52caf61f131af9dfa3064a/rxjava-2.2.4.jar:/home/rgai/.m2/repository/io/zeebe/zb-util/0.14.0/zb-util-0.14.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-buffer-netty/1.0.1/af9a892abf8736197ab30aee4357dc51b4276ec4/micronaut-buffer-netty-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-router/1.0.1/32623b1daaafe5c7dba7d0b875d2e94dd6680180/micronaut-router-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-http/1.0.1/ffbfff2d367c162b02bec1d7570bcb12f914a4d2/micronaut-http-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-aop/1.0.1/d09243d8c66c75e0894cfa944549edb6b7ac8b20/micronaut-aop-1.0.1.jar:/home/rgai/.m2/repository/ch/qos/logback/logback-classic/1.2.3/logback-classic-1.2.3.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-inject/1.0.1/3f99efb872aa1629eab02431612a3158c00cc88b/micronaut-inject-1.0.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.micronaut/micronaut-core/1.0.1/35607ed489b76f6b8ceefa345d44f44a917e7bce/micronaut-core-1.0.1.jar:/home/rgai/.m2/repository/org/slf4j/slf4j-api/1.7.25/slf4j-api-1.7.25.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.lz4/lz4-java/1.4/9bedb74f461a87ff2161bdf0778ad8ca6bad3e1c/lz4-java-1.4.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.xerial.snappy/snappy-java/1.1.7.1/d5190b41f3de61e3b83d692322d58630252bc8c3/snappy-java-1.1.7.1.jar:/home/rgai/.m2/repository/io/zeebe/zb-bpmn-model/0.14.0/zb-bpmn-model-0.14.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jdk8/2.9.7/98d8f190db07f97c64c0ea3af5792f718a6c2cc1/jackson-datatype-jdk8-2.9.7.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.datatype/jackson-datatype-jsr310/2.9.7/cbd919f1ce67533e07b98dd493247e8dbabc26b2/jackson-datatype-jsr310-2.9.7.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-databind/2.9.7/e6faad47abd3179666e89068485a1b88a195ceb7/jackson-databind-2.9.7.jar:/home/rgai/.m2/repository/io/zeebe/zeebe-gateway-protocol/0.14.0/zeebe-gateway-protocol-0.14.0.jar:/home/rgai/.m2/repository/io/grpc/grpc-netty/1.16.1/grpc-netty-1.16.1.jar:/home/rgai/.m2/repository/io/grpc/grpc-testing/1.16.1/grpc-testing-1.16.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler-proxy/4.1.30.Final/1baa1568fa936caddca0fae96fdf127fd5cbad16/netty-handler-proxy-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-jdk7/1.3.10/4d147bf43060dc43d61b096e24da1e67dfe0c032/kotlin-stdlib-jdk7-1.3.10.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib/1.3.10/b178c1501609c6e4ee8be635513cb023a466457d/kotlin-stdlib-1.3.10.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.yaml/snakeyaml/1.23/ec62d74fe50689c28c0ff5b35d3aebcaa8b5be68/snakeyaml-1.23.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-text/1.2/74acdec7237f576c4803fff0c1008ab8a3808b2b/commons-text-1.2.jar:/home/rgai/.m2/repository/org/apache/commons/commons-lang3/3.7/commons-lang3-3.7.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.apache.commons/commons-math3/3.6.1/e4ba98f1d4b3c80ec46392f25e094a6a2e58fcbf/commons-math3-3.6.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.google.inject.extensions/guice-assistedinject/4.2.0/e7270305960ad7db56f7e30cb9df6be9ff1cfb45/guice-assistedinject-4.2.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.google.inject/guice/4.2.0/25e1f4c1d528a1cffabcca0d432f634f3132f6c8/guice-4.2.0.jar:/home/rgai/.m2/repository/io/grpc/grpc-protobuf/1.16.1/grpc-protobuf-1.16.1.jar:/home/rgai/.m2/repository/com/google/protobuf/protobuf-java-util/3.6.1/protobuf-java-util-3.6.1.jar:/home/rgai/.m2/repository/io/grpc/grpc-stub/1.16.1/grpc-stub-1.16.1.jar:/home/rgai/.m2/repository/io/grpc/grpc-protobuf-lite/1.16.1/grpc-protobuf-lite-1.16.1.jar:/home/rgai/.m2/repository/io/grpc/grpc-core/1.16.1/grpc-core-1.16.1.jar:/home/rgai/.m2/repository/com/google/guava/guava/26.0-android/guava-26.0-android.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.iban4j/iban4j/3.2.1/204dff5fc871bb822dcebbdd10b0f2b681b6b88c/iban4j-3.2.1.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.codehaus.groovy/groovy-all/2.4.14/cd1a8ce914f5fe86c00a917b0577da6f367edcf9/groovy-all-2.4.14.jar:/home/rgai/.m2/repository/javax/validation/validation-api/2.0.1.Final/validation-api-2.0.1.Final.jar:/home/rgai/.m2/repository/ch/qos/logback/logback-core/1.2.3/logback-core-1.2.3.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.reactivestreams/reactive-streams/1.0.1/1b1c911686eb40179219466e6a59b634b9d7a748/reactive-streams-1.0.1.jar:/home/rgai/.m2/repository/org/camunda/bpm/model/camunda-xml-model/7.10.0/camunda-xml-model-7.10.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-annotations/2.9.7/4b838e5c4fc17ac02f3293e9a558bb781a51c46d/jackson-annotations-2.9.7.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/com.fasterxml.jackson.core/jackson-core/2.9.7/4b7f0e0dc527fab032e9800ed231080fdc3ac015/jackson-core-2.9.7.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http2/4.1.30.Final/2da92f518409904954d3e8dcc42eb6a562a70302/netty-codec-http2-4.1.30.Final.jar:/home/rgai/.m2/repository/junit/junit/4.12/junit-4.12.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.mockito/mockito-core/1.9.5/c3264abeea62c4d2f367e21484fbb40c7e256393/mockito-core-1.9.5.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-http/4.1.30.Final/1384c630e8a0eeef33ad12a28791dce6e1d8767c/netty-codec-http-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-handler/4.1.30.Final/ecc076332ed103411347f4806a44ee32d9d9cb5f/netty-handler-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec-socks/4.1.30.Final/ea272e3bb281d3a91d27278f47e61b4de285cc27/netty-codec-socks-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-codec/4.1.30.Final/515c8f609aaca28a94f984d89a9667dd3359c1b1/netty-codec-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-transport/4.1.30.Final/3d27bb432a3b125167ac161b26415ad29ec17f02/netty-transport-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.jetbrains.kotlin/kotlin-stdlib-common/1.3.10/1b19d99229dcedad7caf50534dce38fe82845269/kotlin-stdlib-common-1.3.10.jar:/home/rgai/.m2/repository/org/jetbrains/annotations/13.0/annotations-13.0.jar:/home/rgai/.m2/repository/com/google/code/findbugs/jsr305/3.0.2/jsr305-3.0.2.jar:/home/rgai/.m2/repository/org/checkerframework/checker-compat-qual/2.5.2/checker-compat-qual-2.5.2.jar:/home/rgai/.m2/repository/io/opencensus/opencensus-contrib-grpc-metrics/0.12.3/opencensus-contrib-grpc-metrics-0.12.3.jar:/home/rgai/.m2/repository/io/opencensus/opencensus-api/0.12.3/opencensus-api-0.12.3.jar:/home/rgai/.m2/repository/com/google/errorprone/error_prone_annotations/2.2.0/error_prone_annotations-2.2.0.jar:/home/rgai/.m2/repository/com/google/j2objc/j2objc-annotations/1.1/j2objc-annotations-1.1.jar:/home/rgai/.m2/repository/org/codehaus/mojo/animal-sniffer-annotations/1.17/animal-sniffer-annotations-1.17.jar:/home/rgai/.m2/repository/javax/inject/javax.inject/1/javax.inject-1.jar:/home/rgai/.m2/repository/aopalliance/aopalliance/1.0/aopalliance-1.0.jar:/home/rgai/.m2/repository/javax/annotation/javax.annotation-api/1.3.2/javax.annotation-api-1.3.2.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-common/4.1.30.Final/5dca0c34d8f38af51a2398614e81888f51cf811a/netty-common-4.1.30.Final.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-resolver/4.1.30.Final/5106fd687066ffd712e5295d32af4e2ac6482613/netty-resolver-4.1.30.Final.jar:/home/rgai/.m2/repository/com/google/protobuf/protobuf-java/3.6.1/protobuf-java-3.6.1.jar:/home/rgai/.m2/repository/com/google/api/grpc/proto-google-common-protos/1.0.0/proto-google-common-protos-1.0.0.jar:/home/rgai/.m2/repository/com/google/code/gson/gson/2.7/gson-2.7.jar:/home/rgai/.m2/repository/io/grpc/grpc-context/1.16.1/grpc-context-1.16.1.jar:/home/rgai/.m2/repository/org/hamcrest/hamcrest-core/1.3/hamcrest-core-1.3.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/org.objenesis/objenesis/1.0/9b473564e792c2bdf1449da1f0b1b5bff9805704/objenesis-1.0.jar:/home/rgai/.gradle/caches/modules-2/files-2.1/io.netty/netty-buffer/4.1.30.Final/597adb653306470fb3ec1af3c0f3f30a37b1310a/netty-buffer-4.1.30.Final.jar:/home/rgai/usr/idea/lib/idea_rt.jar zeebe.workers.Application
+Connected to the target VM, address: '127.0.0.1:46501', transport: 'socket'
+19:29:02.593 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:02.762 Kafka version : 1.1.0
+19:29:02.762 Kafka commitId : fdcf75ea326b8e07
+19:29:03.046 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.051 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.063 Kafka version : 1.1.0
+19:29:03.064 Kafka commitId : fdcf75ea326b8e07
+19:29:03.064 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.065 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.071 Kafka version : 1.1.0
+19:29:03.071 Kafka commitId : fdcf75ea326b8e07
+19:29:03.071 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.072 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.078 Kafka version : 1.1.0
+19:29:03.078 Kafka commitId : fdcf75ea326b8e07
+19:29:03.079 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.082 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.088 Kafka version : 1.1.0
+19:29:03.088 Kafka commitId : fdcf75ea326b8e07
+19:29:03.088 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.089 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.093 Kafka version : 1.1.0
+19:29:03.093 Kafka commitId : fdcf75ea326b8e07
+19:29:03.093 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.094 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.098 Kafka version : 1.1.0
+19:29:03.098 Kafka commitId : fdcf75ea326b8e07
+19:29:03.098 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.099 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.102 Kafka version : 1.1.0
+19:29:03.102 Kafka commitId : fdcf75ea326b8e07
+19:29:03.102 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.112 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.116 Kafka version : 1.1.0
+19:29:03.116 Kafka commitId : fdcf75ea326b8e07
+19:29:03.117 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.117 ConsumerConfig values: 
+  auto.commit.interval.ms = 5000
+  auto.offset.reset = latest
+  bootstrap.servers = [localhost:9092]
+  check.crcs = true
+  client.id = zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9
+  connections.max.idle.ms = 540000
+  enable.auto.commit = true
+  exclude.internal.topics = true
+  fetch.max.bytes = 52428800
+  fetch.max.wait.ms = 500
+  fetch.min.bytes = 1
+  group.id = zeebe-workers
+  heartbeat.interval.ms = 3000
+  interceptor.classes = []
+  internal.leave.group.on.close = true
+  isolation.level = read_uncommitted
+  key.deserializer = class org.apache.kafka.common.serialization.StringDeserializer
+  max.partition.fetch.bytes = 1048576
+  max.poll.interval.ms = 300000
+  max.poll.records = 500
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partition.assignment.strategy = [class org.apache.kafka.clients.consumer.RangeAssignor]
+  receive.buffer.bytes = 65536
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 305000
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  session.timeout.ms = 10000
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  value.deserializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:03.121 Kafka version : 1.1.0
+19:29:03.121 Kafka commitId : fdcf75ea326b8e07
+19:29:03.122 Kafka listener [void receive(String id,String applicationId,String source,String from,Map body)] subscribed to topics: [card-application]
+19:29:03.193 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.193 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.193 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.194 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.194 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.195 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.196 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.196 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.197 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.198 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.193 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.193 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.200 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.200 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] (Re-)joining group
+19:29:03.201 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.202 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.203 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:03.203 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.204 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.208 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.208 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] (Re-)joining group
+19:29:03.214 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.216 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] (Re-)joining group
+19:29:03.217 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] (Re-)joining group
+19:29:03.221 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] (Re-)joining group
+19:29:03.222 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] (Re-)joining group
+19:29:03.224 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.225 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0, groupId=zeebe-workers] (Re-)joining group
+19:29:03.236 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Successfully joined group with generation 6
+19:29:03.238 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:03.239 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.239 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6, groupId=zeebe-workers] (Re-)joining group
+19:29:03.240 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.195 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.244 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.244 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1, groupId=zeebe-workers] (Re-)joining group
+19:29:03.244 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.244 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7, groupId=zeebe-workers] (Re-)joining group
+19:29:03.198 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8, groupId=zeebe-workers] Discovered group coordinator 127.0.0.1:9092 (id: 2147483326 rack: null)
+19:29:03.247 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.248 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.248 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3, groupId=zeebe-workers] (Re-)joining group
+19:29:03.248 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8, groupId=zeebe-workers] (Re-)joining group
+19:29:03.238 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Successfully joined group with generation 6
+19:29:03.237 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Successfully joined group with generation 6
+19:29:03.247 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:03.248 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9, groupId=zeebe-workers] (Re-)joining group
+19:29:03.248 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:03.250 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Setting newly assigned partitions [card-application-0]
+19:29:03.439 Kafka stat sent: 0 received: 0
+19:29:03.737 Error invoking scheduled task for bean [zeebe.workers.card.$CardApplicationWorkersDefinition$Intercepted@7e0cbf6d] Request exception (NOT_FOUND): No workflow found with BPMN process id 'open-card'
+
+io.zeebe.client.cmd.ClientException: Request exception (NOT_FOUND): No workflow found with BPMN process id 'open-card'
+
+  at io.zeebe.client.impl.ZeebeClientFutureImpl.join(ZeebeClientFutureImpl.java:52)
+  at zeebe.workers.card.CardApplicationWorkers.dumpMeta(CardApplicationWorkers.kt:37)
+  at zeebe.workers.card.$CardApplicationWorkersDefinition$$exec1.invokeInternal(Unknown Source)
+  at io.micronaut.context.AbstractExecutableMethod.invoke(AbstractExecutableMethod.java:145)
+  at io.micronaut.inject.DelegatingExecutableMethod.invoke(DelegatingExecutableMethod.java:77)
+  at io.micronaut.scheduling.processor.ScheduledMethodProcessor.lambda$process$5(ScheduledMethodProcessor.java:111)
+  at java.util.concurrent.Executors$RunnableAdapter.call(Executors.java:511)
+  at java.util.concurrent.FutureTask.runAndReset$$$capture(FutureTask.java:308)
+  at java.util.concurrent.FutureTask.runAndReset(FutureTask.java)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.access$301(ScheduledThreadPoolExecutor.java:180)
+  at java.util.concurrent.ScheduledThreadPoolExecutor$ScheduledFutureTask.run(ScheduledThreadPoolExecutor.java:294)
+  at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1149)
+  at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:624)
+  at java.lang.Thread.run(Thread.java:748)
+Caused by: java.util.concurrent.ExecutionException: io.grpc.StatusRuntimeException: INTERNAL: Request exception (NOT_FOUND): No workflow found with BPMN process id 'open-card'
+
+  at java.util.concurrent.CompletableFuture.reportGet(CompletableFuture.java:357)
+  at java.util.concurrent.CompletableFuture.get(CompletableFuture.java:1895)
+  at io.zeebe.client.impl.ZeebeClientFutureImpl.join(ZeebeClientFutureImpl.java:47)
+  ... 13 common frames omitted
+Caused by: io.grpc.StatusRuntimeException: INTERNAL: Request exception (NOT_FOUND): No workflow found with BPMN process id 'open-card'
+
+  at io.grpc.Status.asRuntimeException(Status.java:526)
+  at io.grpc.stub.ClientCalls$StreamObserverToCallListenerAdapter.onClose(ClientCalls.java:434)
+  at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+  at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+  at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+  at io.grpc.internal.CensusStatsModule$StatsClientInterceptor$1$1.onClose(CensusStatsModule.java:678)
+  at io.grpc.PartialForwardingClientCallListener.onClose(PartialForwardingClientCallListener.java:39)
+  at io.grpc.ForwardingClientCallListener.onClose(ForwardingClientCallListener.java:23)
+  at io.grpc.ForwardingClientCallListener$SimpleForwardingClientCallListener.onClose(ForwardingClientCallListener.java:40)
+  at io.grpc.internal.CensusTracingModule$TracingClientInterceptor$1$1.onClose(CensusTracingModule.java:397)
+  at io.grpc.internal.ClientCallImpl.closeObserver(ClientCallImpl.java:459)
+  at io.grpc.internal.ClientCallImpl.access$300(ClientCallImpl.java:63)
+  at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.close(ClientCallImpl.java:546)
+  at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl.access$600(ClientCallImpl.java:467)
+  at io.grpc.internal.ClientCallImpl$ClientStreamListenerImpl$1StreamClosed.runInContext(ClientCallImpl.java:584)
+  at io.grpc.internal.ContextRunnable.run(ContextRunnable.java:37)
+  at io.grpc.internal.SerializingExecutor.run(SerializingExecutor.java:123)
+  ... 3 common frames omitted
+19:29:04.043 ProducerConfig values: 
+  acks = 1
+  batch.size = 16384
+  bootstrap.servers = [localhost:9092]
+  buffer.memory = 33554432
+  client.id = 
+  compression.type = none
+  connections.max.idle.ms = 540000
+  enable.idempotence = false
+  interceptor.classes = []
+  key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+  linger.ms = 0
+  max.block.ms = 60000
+  max.in.flight.requests.per.connection = 5
+  max.request.size = 1048576
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+  receive.buffer.bytes = 32768
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 30000
+  retries = 0
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  transaction.timeout.ms = 60000
+  transactional.id = null
+  value.serializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:04.057 ProducerConfig values: 
+  acks = 1
+  batch.size = 16384
+  bootstrap.servers = [localhost:9092]
+  buffer.memory = 33554432
+  client.id = 
+  compression.type = none
+  connections.max.idle.ms = 540000
+  enable.idempotence = false
+  interceptor.classes = []
+  key.serializer = class org.apache.kafka.common.serialization.StringSerializer
+  linger.ms = 0
+  max.block.ms = 60000
+  max.in.flight.requests.per.connection = 5
+  max.request.size = 1048576
+  metadata.max.age.ms = 300000
+  metric.reporters = []
+  metrics.num.samples = 2
+  metrics.recording.level = INFO
+  metrics.sample.window.ms = 30000
+  partitioner.class = class org.apache.kafka.clients.producer.internals.DefaultPartitioner
+  receive.buffer.bytes = 32768
+  reconnect.backoff.max.ms = 1000
+  reconnect.backoff.ms = 50
+  request.timeout.ms = 30000
+  retries = 0
+  retry.backoff.ms = 100
+  sasl.jaas.config = null
+  sasl.kerberos.kinit.cmd = /usr/bin/kinit
+  sasl.kerberos.min.time.before.relogin = 60000
+  sasl.kerberos.service.name = null
+  sasl.kerberos.ticket.renew.jitter = 0.05
+  sasl.kerberos.ticket.renew.window.factor = 0.8
+  sasl.mechanism = GSSAPI
+  security.protocol = PLAINTEXT
+  send.buffer.bytes = 131072
+  ssl.cipher.suites = null
+  ssl.enabled.protocols = [TLSv1.2, TLSv1.1, TLSv1]
+  ssl.endpoint.identification.algorithm = null
+  ssl.key.password = null
+  ssl.keymanager.algorithm = SunX509
+  ssl.keystore.location = null
+  ssl.keystore.password = null
+  ssl.keystore.type = JKS
+  ssl.protocol = TLS
+  ssl.provider = null
+  ssl.secure.random.implementation = null
+  ssl.trustmanager.algorithm = PKIX
+  ssl.truststore.location = null
+  ssl.truststore.password = null
+  ssl.truststore.type = JKS
+  transaction.timeout.ms = 60000
+  transactional.id = null
+  value.serializer = class io.micronaut.configuration.kafka.serde.JsonSerde
+
+19:29:04.063 Deploying workflows: [/home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/order-process.bpmn, /home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/open-card.bpmn, /home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/order-process-original.bpmn]
+19:29:04.078 Startup completed in 2886ms. Server Running: http://localhost:8080
+19:29:04.109 Kafka version : 1.1.0
+19:29:04.110 Kafka commitId : fdcf75ea326b8e07
+19:29:04.111 Kafka version : 1.1.0
+19:29:04.111 Kafka commitId : fdcf75ea326b8e07
+19:29:04.123 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:04.128 Cluster ID: TVrWpBLaQT6YZs1mO1PFCw
+19:29:04.439 Kafka stat sent: 2 received: 0
+19:29:05.241 Got deployment response: DeploymentEventImpl{key=705, workflows=[WorkflowImpl{workflowKey=702, bpmnProcessId='order-process', version=1, resourceName='/home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/order-process.bpmn'}, WorkflowImpl{workflowKey=703, bpmnProcessId='open-card', version=1, resourceName='/home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/open-card.bpmn'}, WorkflowImpl{workflowKey=704, bpmnProcessId='order-process-original', version=1, resourceName='/home/rgai/Projects/zeebe-kafka-camunda/workers/../test-data/order-process-original.bpmn'}]}
+19:29:05.272 Open card stat version 1 kyc: 0 score: 0 msg: 0 createContract: 0 scoreRate: 0 contractConfirm: 0 issueCard: 0
+19:29:05.439 Kafka stat sent: 49 received: 33
+19:29:06.249 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:06.249 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] (Re-)joining group
+19:29:06.251 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Revoking previously assigned partitions []
+19:29:06.251 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] (Re-)joining group
+19:29:06.252 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Revoking previously assigned partitions [card-application-0]
+19:29:06.253 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] (Re-)joining group
+19:29:06.257 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-1, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-6, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-3, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.257 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-7, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.259 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-2, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.261 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-8, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.258 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.261 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-0, groupId=zeebe-workers] Setting newly assigned partitions [card-application-0]
+19:29:06.259 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.264 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-5, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.261 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9, groupId=zeebe-workers] Successfully joined group with generation 7
+19:29:06.261 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-4, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.265 [Consumer clientId=zeebe-workers-$-kafka-card-application-receiver-definition$-intercepted-9, groupId=zeebe-workers] Setting newly assigned partitions []
+19:29:06.278 Open card stat version 1 kyc: 22 score: 0 msg: 0 createContract: 0 scoreRate: 0 contractConfirm: 0 issueCard: 0
+19:29:06.440 Kafka stat sent: 134 received: 117
+19:29:07.312 Open card stat version 1 kyc: 97 score: 0 msg: 0 createContract: 0 scoreRate: 0 contractConfirm: 0 issueCard: 0
+19:29:07.440 Kafka stat sent: 203 received: 169
+19:29:08.322 Open card stat version 1 kyc: 115 score: 17 msg: 19 createContract: 0 scoreRate: 0 contractConfirm: 0 issueCard: 0
+19:29:08.441 Kafka stat sent: 273 received: 221
+19:29:09.327 Open card stat version 1 kyc: 164 score: 73 msg: 27 createContract: 50 scoreRate: 0 contractConfirm: 0 issueCard: 0
+19:29:09.441 Kafka stat sent: 356 received: 311
+19:29:10.346 Open card stat version 1 kyc: 213 score: 122 msg: 56 createContract: 96 scoreRate: 24 contractConfirm: 24 issueCard: 0
+19:29:10.441 Kafka stat sent: 441 received: 387
+19:29:11.354 Open card stat version 1 kyc: 233 score: 136 msg: 72 createContract: 110 scoreRate: 45 contractConfirm: 45 issueCard: 10
+19:29:11.441 Kafka stat sent: 515 received: 452
+19:29:12.363 Open card stat version 1 kyc: 262 score: 171 msg: 90 createContract: 142 scoreRate: 80 contractConfirm: 80 issueCard: 44
+19:29:12.442 Kafka stat sent: 596 received: 522
+19:29:13.366 Open card stat version 1 kyc: 290 score: 199 msg: 90 createContract: 161 scoreRate: 108 contractConfirm: 108 issueCard: 73
+19:29:13.442 Kafka stat sent: 677 received: 593
+19:29:14.369 Open card stat version 1 kyc: 351 score: 254 msg: 124 createContract: 209 scoreRate: 164 contractConfirm: 164 issueCard: 129
+19:29:14.442 Kafka stat sent: 764 received: 672
+19:29:15.371 Open card stat version 1 kyc: 410 score: 297 msg: 149 createContract: 250 scoreRate: 227 contractConfirm: 227 issueCard: 192
+19:29:15.443 Kafka stat sent: 846 received: 744
+19:29:16.386 Open card stat version 1 kyc: 451 score: 325 msg: 166 createContract: 271 scoreRate: 268 contractConfirm: 268 issueCard: 233
+19:29:16.443 Kafka stat sent: 930 received: 817
+19:29:17.391 Open card stat version 1 kyc: 472 score: 333 msg: 173 createContract: 280 scoreRate: 277 contractConfirm: 277 issueCard: 248
+19:29:17.444 Kafka stat sent: 1004 received: 878
+19:29:18.398 Open card stat version 1 kyc: 507 score: 365 msg: 186 createContract: 307 scoreRate: 295 contractConfirm: 295 issueCard: 283
+19:29:18.444 Kafka stat sent: 1085 received: 955
+19:29:19.400 Open card stat version 1 kyc: 619 score: 450 msg: 233 createContract: 373 scoreRate: 370 contractConfirm: 369 issueCard: 364
+19:29:19.445 Kafka stat sent: 1175 received: 1035
+19:29:20.401 Open card stat version 1 kyc: 773 score: 565 msg: 250 createContract: 475 scoreRate: 471 contractConfirm: 471 issueCard: 462
+19:29:20.445 Kafka stat sent: 1271 received: 1121
+19:29:21.405 Open card stat version 1 kyc: 857 score: 625 msg: 318 createContract: 526 scoreRate: 522 contractConfirm: 522 issueCard: 512
+19:29:21.445 Kafka stat sent: 1361 received: 1200
+19:29:22.408 Open card stat version 1 kyc: 948 score: 694 msg: 319 createContract: 581 scoreRate: 576 contractConfirm: 576 issueCard: 572
+19:29:22.445 Kafka stat sent: 1455 received: 1285
+19:29:23.410 Open card stat version 1 kyc: 1039 score: 759 msg: 387 createContract: 638 scoreRate: 633 contractConfirm: 633 issueCard: 628
+19:29:23.446 Kafka stat sent: 1546 received: 1366
+19:29:24.429 Open card stat version 1 kyc: 1144 score: 837 msg: 394 createContract: 705 scoreRate: 698 contractConfirm: 698 issueCard: 694
+19:29:24.446 Kafka stat sent: 1639 received: 1449
+19:29:25.436 Open card stat version 1 kyc: 1242 score: 901 msg: 468 createContract: 762 scoreRate: 754 contractConfirm: 754 issueCard: 731
+19:29:25.446 Kafka stat sent: 1725 received: 1525
+19:29:26.438 Open card stat version 1 kyc: 1312 score: 952 msg: 494 createContract: 799 scoreRate: 794 contractConfirm: 794 issueCard: 790
+19:29:26.447 Kafka stat sent: 1809 received: 1601
+19:29:27.439 Open card stat version 1 kyc: 1438 score: 1055 msg: 533 createContract: 887 scoreRate: 878 contractConfirm: 877 issueCard: 869
+19:29:27.447 Kafka stat sent: 1901 received: 1683
+19:29:28.440 Open card stat version 1 kyc: 1578 score: 1157 msg: 564 createContract: 982 scoreRate: 978 contractConfirm: 978 issueCard: 967
+19:29:28.447 Kafka stat sent: 1990 received: 1762
+19:29:29.443 Open card stat version 1 kyc: 1711 score: 1258 msg: 621 createContract: 1066 scoreRate: 1063 contractConfirm: 1063 issueCard: 1057
+19:29:29.447 Kafka stat sent: 2084 received: 1846
+19:29:30.444 Open card stat version 1 kyc: 1879 score: 1387 msg: 651 createContract: 1179 scoreRate: 1177 contractConfirm: 1177 issueCard: 1175
+19:29:30.447 Kafka stat sent: 2181 received: 1933
+19:29:31.447 Open card stat version 1 kyc: 2013 score: 1484 msg: 738 createContract: 1268 scoreRate: 1265 contractConfirm: 1265 issueCard: 1264
+19:29:31.448 Kafka stat sent: 2274 received: 2017
+19:29:32.448 Kafka stat sent: 2369 received: 2102
+19:29:32.448 Open card stat version 1 kyc: 2035 score: 1497 msg: 741 createContract: 1272 scoreRate: 1269 contractConfirm: 1269 issueCard: 1269
+19:29:33.448 Kafka stat sent: 2458 received: 2180
+19:29:33.455 Open card stat version 1 kyc: 2172 score: 1604 msg: 794 createContract: 1363 scoreRate: 1279 contractConfirm: 1279 issueCard: 1269
+19:29:34.449 Kafka stat sent: 2547 received: 2260
+19:29:34.456 Open card stat version 1 kyc: 2242 score: 1635 msg: 804 createContract: 1375 scoreRate: 1375 contractConfirm: 1375 issueCard: 1293
+19:29:35.449 Kafka stat sent: 2637 received: 2341
+19:29:35.467 Open card stat version 1 kyc: 2284 score: 1685 msg: 804 createContract: 1383 scoreRate: 1375 contractConfirm: 1375 issueCard: 1375
+19:29:36.449 Kafka stat sent: 2724 received: 2418
+19:29:36.472 Open card stat version 1 kyc: 2401 score: 1695 msg: 856 createContract: 1447 scoreRate: 1391 contractConfirm: 1390 issueCard: 1375
+19:29:37.450 Kafka stat sent: 2813 received: 2497
+19:29:37.479 Open card stat version 1 kyc: 2492 score: 1850 msg: 886 createContract: 1447 scoreRate: 1447 contractConfirm: 1447 issueCard: 1375
+19:29:38.451 Kafka stat sent: 2900 received: 2575
+19:29:38.498 Open card stat version 1 kyc: 2571 score: 1913 msg: 909 createContract: 1548 scoreRate: 1457 contractConfirm: 1456 issueCard: 1447
+19:29:39.451 Kafka stat sent: 2990 received: 2655
+19:29:39.500 Open card stat version 1 kyc: 2651 score: 1974 msg: 928 createContract: 1660 scoreRate: 1569 contractConfirm: 1568 issueCard: 1447
+19:29:40.451 Kafka stat sent: 3085 received: 2740
+19:29:40.502 Open card stat version 1 kyc: 2737 score: 2032 msg: 958 createContract: 1744 scoreRate: 1691 contractConfirm: 1690 issueCard: 1576
+19:29:41.451 Kafka stat sent: 3183 received: 2828
+19:29:41.504 Open card stat version 1 kyc: 2813 score: 2076 msg: 999 createContract: 1786 scoreRate: 1786 contractConfirm: 1786 issueCard: 1786
+19:29:42.452 Kafka stat sent: 3279 received: 2915
+19:29:42.509 Open card stat version 1 kyc: 2854 score: 2115 msg: 1023 createContract: 1820 scoreRate: 1786 contractConfirm: 1786 issueCard: 1786
+19:29:43.452 Kafka stat sent: 3370 received: 2996
+19:29:43.517 Open card stat version 1 kyc: 2941 score: 2121 msg: 1041 createContract: 1827 scoreRate: 1827 contractConfirm: 1827 issueCard: 1786
+19:29:44.452 Kafka stat sent: 3465 received: 3081
+19:29:44.520 Open card stat version 1 kyc: 3065 score: 2282 msg: 1062 createContract: 1963 scoreRate: 1827 contractConfirm: 1827 issueCard: 1827
+19:29:45.453 Kafka stat sent: 3561 received: 3166
+19:29:45.529 Open card stat version 1 kyc: 3091 score: 2282 msg: 1099 createContract: 1970 scoreRate: 1970 contractConfirm: 1970 issueCard: 1827
+19:29:46.453 Kafka stat sent: 3652 received: 3248
+19:29:46.533 Open card stat version 1 kyc: 3218 score: 2402 msg: 1140 createContract: 2067 scoreRate: 1970 contractConfirm: 1970 issueCard: 1937
+19:29:47.453 Kafka stat sent: 3747 received: 3333
+19:29:47.535 Open card stat version 1 kyc: 3338 score: 2495 msg: 1167 createContract: 2142 scoreRate: 2134 contractConfirm: 2134 issueCard: 1970
+19:29:48.453 Kafka stat sent: 3842 received: 3419
+19:29:48.536 Open card stat version 1 kyc: 3345 score: 2501 msg: 1188 createContract: 2155 scoreRate: 2142 contractConfirm: 2142 issueCard: 2142
+19:29:49.454 Kafka stat sent: 3940 received: 3507
+19:29:49.540 Open card stat version 1 kyc: 3503 score: 2614 msg: 1219 createContract: 2246 scoreRate: 2246 contractConfirm: 2246 issueCard: 2142
+19:29:50.454 Kafka stat sent: 4033 received: 3590
+19:29:50.544 Open card stat version 1 kyc: 3568 score: 2666 msg: 1260 createContract: 2298 scoreRate: 2246 contractConfirm: 2246 issueCard: 2246
+19:29:51.454 Kafka stat sent: 4127 received: 3674
+19:29:51.547 Open card stat version 1 kyc: 3604 score: 2670 msg: 1277 createContract: 2301 scoreRate: 2301 contractConfirm: 2301 issueCard: 2246
+19:29:52.454 Kafka stat sent: 4222 received: 3759
+19:29:52.549 Open card stat version 1 kyc: 3743 score: 2798 msg: 1320 createContract: 2407 scoreRate: 2301 contractConfirm: 2301 issueCard: 2301
+19:29:53.455 Kafka stat sent: 4319 received: 3846
+19:29:53.550 Open card stat version 1 kyc: 3771 score: 2798 msg: 1343 createContract: 2409 scoreRate: 2409 contractConfirm: 2409 issueCard: 2301
+19:29:54.455 Kafka stat sent: 4415 received: 3933
+19:29:54.553 Open card stat version 1 kyc: 3921 score: 2922 msg: 1387 createContract: 2513 scoreRate: 2409 contractConfirm: 2409 issueCard: 2409
+19:29:55.455 Kafka stat sent: 4503 received: 4010
+19:29:55.562 Open card stat version 1 kyc: 3992 score: 2977 msg: 1415 createContract: 2551 scoreRate: 2447 contractConfirm: 2447 issueCard: 2409
+19:29:56.456 Kafka stat sent: 4590 received: 4088
+19:29:56.563 Open card stat version 1 kyc: 4041 score: 3017 msg: 1433 createContract: 2583 scoreRate: 2496 contractConfirm: 2496 issueCard: 2440
+19:29:57.456 Kafka stat sent: 4685 received: 4173
+19:29:57.564 Open card stat version 1 kyc: 4154 score: 3105 msg: 1472 createContract: 2662 scoreRate: 2608 contractConfirm: 2608 issueCard: 2559
+19:29:58.456 Kafka stat sent: 4782 received: 4260
+19:29:58.567 Open card stat version 1 kyc: 4262 score: 3192 msg: 1506 createContract: 2743 scoreRate: 2738 contractConfirm: 2737 issueCard: 2692
+19:29:59.457 Kafka stat sent: 4879 received: 4347
+19:29:59.569 Open card stat version 1 kyc: 4352 score: 3259 msg: 1533 createContract: 2807 scoreRate: 2797 contractConfirm: 2797 issueCard: 2797
+19:30:00.457 Kafka stat sent: 4970 received: 4429
+19:30:00.571 Open card stat version 1 kyc: 4436 score: 3264 msg: 1571 createContract: 2812 scoreRate: 2812 contractConfirm: 2812 issueCard: 2797
+19:30:01.457 Kafka stat sent: 5057 received: 4506
+19:30:01.573 Open card stat version 1 kyc: 4495 score: 3323 msg: 1596 createContract: 2850 scoreRate: 2812 contractConfirm: 2812 issueCard: 2812
+19:30:02.457 Kafka stat sent: 5145 received: 4580
+19:30:02.585 Open card stat version 1 kyc: 4556 score: 3386 msg: 1622 createContract: 2912 scoreRate: 2812 contractConfirm: 2812 issueCard: 2812
+19:30:03.458 Kafka stat sent: 5233 received: 4662
+19:30:03.599 Open card stat version 1 kyc: 4605 score: 3429 msg: 1641 createContract: 2951 scoreRate: 2864 contractConfirm: 2864 issueCard: 2812
+19:30:04.459 Kafka stat sent: 5314 received: 4734
+19:30:04.601 Open card stat version 1 kyc: 4646 score: 3461 msg: 1658 createContract: 2972 scoreRate: 2905 contractConfirm: 2904 issueCard: 2850
+19:30:05.459 Kafka stat sent: 5408 received: 4818
+19:30:05.603 Open card stat version 1 kyc: 4737 score: 3527 msg: 1690 createContract: 3029 scoreRate: 2990 contractConfirm: 2990 issueCard: 2941
+19:30:06.459 Kafka stat sent: 5500 received: 4900
+19:30:06.614 Open card stat version 1 kyc: 4800 score: 3572 msg: 1714 createContract: 3068 scoreRate: 3059 contractConfirm: 3058 issueCard: 3004
+19:30:07.460 Kafka stat sent: 5586 received: 4976
+19:30:07.622 Open card stat version 1 kyc: 4877 score: 3635 msg: 1726 createContract: 3127 scoreRate: 3117 contractConfirm: 3117 issueCard: 3088
+19:30:08.460 Kafka stat sent: 5679 received: 5060
+19:30:08.657 Open card stat version 1 kyc: 4933 score: 3676 msg: 1757 createContract: 3157 scoreRate: 3154 contractConfirm: 3153 issueCard: 3137
+19:30:09.460 Kafka stat sent: 5767 received: 5138
+19:30:09.660 Open card stat version 1 kyc: 5003 score: 3727 msg: 1769 createContract: 3207 scoreRate: 3201 contractConfirm: 3200 issueCard: 3191
+19:30:10.460 Kafka stat sent: 5862 received: 5223
+19:30:10.667 Open card stat version 1 kyc: 5073 score: 3788 msg: 1800 createContract: 3260 scoreRate: 3249 contractConfirm: 3249 issueCard: 3243
+19:30:11.461 Kafka stat sent: 5913 received: 5265
+19:30:11.670 Open card stat version 1 kyc: 5142 score: 3830 msg: 1832 createContract: 3293 scoreRate: 3291 contractConfirm: 3291 issueCard: 3286
+19:30:12.461 Kafka stat sent: 5923 received: 5265
+19:30:12.683 Open card stat version 1 kyc: 5227 score: 3895 msg: 1863 createContract: 3347 scoreRate: 3341 contractConfirm: 3339 issueCard: 3331
+19:30:13.461 Kafka stat sent: 5933 received: 5265
+19:30:13.685 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:14.461 Kafka stat sent: 5943 received: 5265
+19:30:14.689 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:15.462 Kafka stat sent: 5953 received: 5265
+19:30:15.691 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:16.462 Kafka stat sent: 5963 received: 5265
+19:30:16.695 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:17.462 Kafka stat sent: 5972 received: 5265
+19:30:17.697 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:18.463 Kafka stat sent: 5982 received: 5265
+19:30:18.699 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:19.463 Kafka stat sent: 5992 received: 5265
+19:30:19.702 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:20.463 Kafka stat sent: 6002 received: 5265
+19:30:20.704 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:21.464 Kafka stat sent: 6011 received: 5265
+19:30:21.708 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:22.464 Kafka stat sent: 6021 received: 5265
+19:30:22.710 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:23.464 Kafka stat sent: 6031 received: 5265
+19:30:23.712 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:24.464 Kafka stat sent: 6041 received: 5265
+19:30:24.714 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:25.465 Kafka stat sent: 6051 received: 5265
+19:30:25.717 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:26.465 Kafka stat sent: 6061 received: 5265
+19:30:26.728 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:27.466 Kafka stat sent: 6070 received: 5265
+19:30:27.729 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:28.466 Kafka stat sent: 6080 received: 5265
+19:30:28.731 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:29.466 Kafka stat sent: 6090 received: 5265
+19:30:29.735 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:30.466 Kafka stat sent: 6100 received: 5265
+19:30:30.738 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:31.467 Kafka stat sent: 6110 received: 5265
+19:30:31.741 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:32.467 Kafka stat sent: 6119 received: 5265
+19:30:32.742 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:33.467 Kafka stat sent: 6129 received: 5265
+19:30:33.745 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:34.468 Kafka stat sent: 6139 received: 5265
+19:30:34.749 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:35.468 Kafka stat sent: 6149 received: 5265
+19:30:35.755 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:36.468 Kafka stat sent: 6158 received: 5265
+19:30:36.757 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:37.470 Kafka stat sent: 6168 received: 5265
+19:30:37.759 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:38.470 Kafka stat sent: 6178 received: 5265
+19:30:38.761 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:39.471 Kafka stat sent: 6188 received: 5265
+19:30:39.763 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:40.471 Kafka stat sent: 6198 received: 5265
+19:30:40.767 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:41.472 Kafka stat sent: 6208 received: 5265
+19:30:41.769 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:42.472 Kafka stat sent: 6217 received: 5265
+19:30:42.771 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:43.472 Kafka stat sent: 6227 received: 5265
+19:30:43.773 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:44.473 Kafka stat sent: 6237 received: 5265
+19:30:44.775 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:45.473 Kafka stat sent: 6247 received: 5265
+19:30:45.778 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:46.473 Kafka stat sent: 6256 received: 5265
+19:30:46.780 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:47.474 Kafka stat sent: 6266 received: 5265
+19:30:47.783 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:48.474 Kafka stat sent: 6276 received: 5265
+19:30:48.786 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:49.474 Kafka stat sent: 6286 received: 5265
+19:30:49.791 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:50.474 Kafka stat sent: 6295 received: 5265
+19:30:50.795 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:51.475 Kafka stat sent: 6305 received: 5265
+19:30:51.798 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:52.475 Kafka stat sent: 6315 received: 5265
+19:30:52.802 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:53.475 Kafka stat sent: 6325 received: 5265
+19:30:53.805 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:54.475 Kafka stat sent: 6334 received: 5265
+19:30:54.807 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:55.476 Kafka stat sent: 6344 received: 5265
+19:30:55.810 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:56.476 Kafka stat sent: 6354 received: 5265
+19:30:56.811 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:57.477 Kafka stat sent: 6363 received: 5265
+19:30:57.813 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:58.477 Kafka stat sent: 6373 received: 5265
+19:30:58.815 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:30:59.477 Kafka stat sent: 6383 received: 5265
+19:30:59.819 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:00.480 Kafka stat sent: 6393 received: 5265
+19:31:00.822 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:01.480 Kafka stat sent: 6403 received: 5265
+19:31:01.823 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:02.492 Kafka stat sent: 6412 received: 5265
+19:31:02.826 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:03.492 Kafka stat sent: 6422 received: 5265
+19:31:03.829 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:04.501 Kafka stat sent: 6432 received: 5265
+19:31:04.831 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:05.502 Kafka stat sent: 6442 received: 5265
+19:31:05.833 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:06.502 Kafka stat sent: 6452 received: 5265
+19:31:06.835 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:07.502 Kafka stat sent: 6462 received: 5265
+19:31:07.838 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:08.503 Kafka stat sent: 6471 received: 5265
+19:31:08.840 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:09.504 Kafka stat sent: 6481 received: 5265
+19:31:09.841 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:10.509 Kafka stat sent: 6491 received: 5265
+19:31:10.843 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:11.509 Kafka stat sent: 6501 received: 5265
+19:31:11.846 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:12.509 Kafka stat sent: 6511 received: 5265
+19:31:12.848 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:13.510 Kafka stat sent: 6520 received: 5265
+19:31:13.851 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:14.510 Kafka stat sent: 6530 received: 5265
+19:31:14.855 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:15.510 Kafka stat sent: 6540 received: 5265
+19:31:15.857 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:16.522 Kafka stat sent: 6550 received: 5265
+19:31:16.860 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:17.522 Kafka stat sent: 6560 received: 5265
+19:31:17.863 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:18.522 Kafka stat sent: 6569 received: 5265
+19:31:18.867 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:19.522 Kafka stat sent: 6579 received: 5265
+19:31:19.870 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:20.523 Kafka stat sent: 6589 received: 5265
+19:31:20.872 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:21.523 Kafka stat sent: 6599 received: 5265
+19:31:21.874 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:22.523 Kafka stat sent: 6608 received: 5265
+19:31:22.875 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:23.523 Kafka stat sent: 6618 received: 5265
+19:31:23.879 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:24.523 Kafka stat sent: 6628 received: 5265
+19:31:24.881 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:25.524 Kafka stat sent: 6638 received: 5265
+19:31:25.884 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:26.524 Kafka stat sent: 6648 received: 5265
+19:31:26.885 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:27.524 Kafka stat sent: 6657 received: 5265
+19:31:27.886 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:28.524 Kafka stat sent: 6667 received: 5265
+19:31:28.890 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:29.524 Kafka stat sent: 6677 received: 5265
+19:31:29.891 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:30.525 Kafka stat sent: 6687 received: 5265
+19:31:30.894 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:31.525 Kafka stat sent: 6697 received: 5265
+19:31:31.897 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:32.525 Kafka stat sent: 6706 received: 5265
+19:31:32.899 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:33.525 Kafka stat sent: 6716 received: 5265
+19:31:33.903 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:34.526 Kafka stat sent: 6726 received: 5265
+19:31:34.911 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:35.526 Kafka stat sent: 6736 received: 5265
+19:31:35.913 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:36.526 Kafka stat sent: 6746 received: 5265
+19:31:36.915 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:37.526 Kafka stat sent: 6755 received: 5265
+19:31:37.920 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:38.526 Kafka stat sent: 6765 received: 5265
+19:31:38.923 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:39.527 Kafka stat sent: 6775 received: 5265
+19:31:39.926 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:40.527 Kafka stat sent: 6785 received: 5265
+19:31:40.930 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:41.527 Kafka stat sent: 6795 received: 5265
+19:31:41.933 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:42.528 Kafka stat sent: 6805 received: 5265
+19:31:42.935 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:43.528 Kafka stat sent: 6815 received: 5265
+19:31:43.938 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:44.529 Kafka stat sent: 6824 received: 5265
+19:31:44.939 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:45.529 Kafka stat sent: 6834 received: 5265
+19:31:45.941 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:46.529 Kafka stat sent: 6844 received: 5265
+19:31:46.944 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:47.529 Kafka stat sent: 6854 received: 5265
+19:31:47.949 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:48.529 Kafka stat sent: 6864 received: 5265
+19:31:48.951 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:49.529 Kafka stat sent: 6873 received: 5265
+19:31:49.952 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:50.530 Kafka stat sent: 6883 received: 5265
+19:31:50.954 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:51.530 Kafka stat sent: 6893 received: 5265
+19:31:51.957 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:52.530 Kafka stat sent: 6903 received: 5265
+19:31:52.960 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:53.530 Kafka stat sent: 6913 received: 5265
+19:31:53.966 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:54.530 Kafka stat sent: 6923 received: 5265
+19:31:54.969 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:55.531 Kafka stat sent: 6933 received: 5265
+19:31:55.973 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:56.531 Kafka stat sent: 6942 received: 5265
+19:31:56.977 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:57.531 Kafka stat sent: 6952 received: 5265
+19:31:57.978 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:58.531 Kafka stat sent: 6962 received: 5265
+19:31:58.979 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:31:59.532 Kafka stat sent: 6972 received: 5265
+19:31:59.982 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:00.532 Kafka stat sent: 6982 received: 5265
+19:32:00.985 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:01.533 Kafka stat sent: 6991 received: 5265
+19:32:01.986 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:02.533 Kafka stat sent: 7001 received: 5265
+19:32:02.988 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:03.533 Kafka stat sent: 7011 received: 5265
+19:32:03.989 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:04.533 Kafka stat sent: 7021 received: 5265
+19:32:04.991 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:05.534 Kafka stat sent: 7031 received: 5265
+19:32:05.993 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:06.534 Kafka stat sent: 7040 received: 5265
+19:32:06.995 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:07.534 Kafka stat sent: 7050 received: 5265
+19:32:07.996 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:08.534 Kafka stat sent: 7060 received: 5265
+19:32:08.997 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:09.535 Kafka stat sent: 7070 received: 5265
+19:32:10.000 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:10.535 Kafka stat sent: 7080 received: 5265
+19:32:11.001 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:11.535 Kafka stat sent: 7090 received: 5265
+19:32:12.003 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:12.535 Kafka stat sent: 7099 received: 5265
+19:32:13.006 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:13.536 Kafka stat sent: 7109 received: 5265
+19:32:14.007 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:14.536 Kafka stat sent: 7119 received: 5265
+19:32:15.008 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:15.536 Kafka stat sent: 7129 received: 5265
+19:32:16.010 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:16.536 Kafka stat sent: 7139 received: 5265
+19:32:17.014 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:17.536 Kafka stat sent: 7149 received: 5265
+19:32:18.029 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:18.537 Kafka stat sent: 7158 received: 5265
+19:32:19.031 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:19.537 Kafka stat sent: 7168 received: 5265
+19:32:20.034 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:20.537 Kafka stat sent: 7178 received: 5265
+19:32:21.036 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:21.537 Kafka stat sent: 7188 received: 5265
+19:32:22.038 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:22.537 Kafka stat sent: 7198 received: 5265
+19:32:23.039 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:23.538 Kafka stat sent: 7207 received: 5265
+19:32:24.042 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:24.538 Kafka stat sent: 7217 received: 5265
+19:32:25.043 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:25.538 Kafka stat sent: 7227 received: 5265
+19:32:26.044 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:26.538 Kafka stat sent: 7237 received: 5265
+19:32:27.045 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:27.538 Kafka stat sent: 7246 received: 5265
+19:32:28.047 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:28.538 Kafka stat sent: 7256 received: 5265
+19:32:29.048 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:29.539 Kafka stat sent: 7266 received: 5265
+19:32:30.050 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:30.539 Kafka stat sent: 7276 received: 5265
+19:32:31.053 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:31.539 Kafka stat sent: 7286 received: 5265
+19:32:32.055 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:32.539 Kafka stat sent: 7295 received: 5265
+19:32:33.057 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:33.540 Kafka stat sent: 7305 received: 5265
+19:32:34.061 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:34.540 Kafka stat sent: 7315 received: 5265
+19:32:35.062 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:35.540 Kafka stat sent: 7325 received: 5265
+19:32:36.064 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:36.540 Kafka stat sent: 7334 received: 5265
+19:32:37.068 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:37.540 Kafka stat sent: 7344 received: 5265
+19:32:38.071 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:38.546 Kafka stat sent: 7354 received: 5265
+19:32:39.072 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:39.546 Kafka stat sent: 7363 received: 5265
+19:32:40.074 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:40.547 Kafka stat sent: 7373 received: 5265
+19:32:41.075 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:41.547 Kafka stat sent: 7383 received: 5265
+19:32:42.079 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:42.547 Kafka stat sent: 7393 received: 5265
+19:32:43.080 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:43.547 Kafka stat sent: 7403 received: 5265
+19:32:44.083 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:44.547 Kafka stat sent: 7413 received: 5265
+19:32:45.084 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:45.547 Kafka stat sent: 7422 received: 5265
+19:32:46.087 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:46.548 Kafka stat sent: 7432 received: 5265
+19:32:47.088 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:47.548 Kafka stat sent: 7442 received: 5265
+19:32:48.089 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:48.548 Kafka stat sent: 7452 received: 5265
+19:32:49.092 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:49.548 Kafka stat sent: 7462 received: 5265
+19:32:50.094 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:50.548 Kafka stat sent: 7471 received: 5265
+19:32:51.097 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:51.549 Kafka stat sent: 7481 received: 5265
+19:32:52.098 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:52.549 Kafka stat sent: 7491 received: 5265
+19:32:53.101 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:53.549 Kafka stat sent: 7501 received: 5265
+19:32:54.103 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:54.549 Kafka stat sent: 7511 received: 5265
+19:32:55.104 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:55.549 Kafka stat sent: 7520 received: 5265
+19:32:56.107 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:56.550 Kafka stat sent: 7530 received: 5265
+19:32:57.117 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:57.550 Kafka stat sent: 7540 received: 5265
+19:32:58.120 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:58.550 Kafka stat sent: 7550 received: 5265
+19:32:59.152 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:32:59.550 Kafka stat sent: 7559 received: 5265
+19:33:00.154 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:00.550 Kafka stat sent: 7569 received: 5265
+19:33:01.158 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:01.550 Kafka stat sent: 7579 received: 5265
+19:33:02.159 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:02.551 Kafka stat sent: 7589 received: 5265
+19:33:03.162 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:03.551 Kafka stat sent: 7599 received: 5265
+19:33:04.164 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:04.551 Kafka stat sent: 7609 received: 5265
+19:33:05.166 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:05.551 Kafka stat sent: 7618 received: 5265
+19:33:06.168 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:06.551 Kafka stat sent: 7628 received: 5265
+19:33:07.170 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:07.551 Kafka stat sent: 7638 received: 5265
+19:33:08.172 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:08.552 Kafka stat sent: 7648 received: 5265
+19:33:09.175 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:09.552 Kafka stat sent: 7658 received: 5265
+19:33:10.179 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:10.552 Kafka stat sent: 7668 received: 5265
+19:33:11.214 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:11.552 Kafka stat sent: 7677 received: 5265
+19:33:12.216 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:12.553 Kafka stat sent: 7687 received: 5265
+19:33:13.217 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:13.562 Kafka stat sent: 7697 received: 5265
+19:33:14.221 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:14.562 Kafka stat sent: 7707 received: 5265
+19:33:15.223 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:15.562 Kafka stat sent: 7717 received: 5265
+19:33:16.226 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:16.562 Kafka stat sent: 7727 received: 5265
+19:33:17.230 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:17.563 Kafka stat sent: 7737 received: 5265
+19:33:18.231 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:18.563 Kafka stat sent: 7746 received: 5265
+19:33:19.233 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:19.563 Kafka stat sent: 7756 received: 5265
+19:33:20.235 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:20.563 Kafka stat sent: 7766 received: 5265
+19:33:21.237 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:21.564 Kafka stat sent: 7776 received: 5265
+19:33:22.239 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:22.564 Kafka stat sent: 7786 received: 5265
+19:33:23.241 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:23.564 Kafka stat sent: 7795 received: 5265
+19:33:24.243 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:24.564 Kafka stat sent: 7805 received: 5265
+19:33:25.244 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:25.564 Kafka stat sent: 7815 received: 5265
+19:33:26.247 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:26.564 Kafka stat sent: 7825 received: 5265
+19:33:27.250 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:27.564 Kafka stat sent: 7834 received: 5265
+19:33:28.252 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:28.565 Kafka stat sent: 7844 received: 5265
+19:33:29.255 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:29.565 Kafka stat sent: 7854 received: 5265
+19:33:30.256 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:30.565 Kafka stat sent: 7864 received: 5265
+19:33:31.258 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:31.565 Kafka stat sent: 7874 received: 5265
+19:33:32.261 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:32.565 Kafka stat sent: 7883 received: 5265
+19:33:33.263 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:33.565 Kafka stat sent: 7893 received: 5265
+19:33:34.266 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:34.566 Kafka stat sent: 7903 received: 5265
+19:33:35.268 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:35.566 Kafka stat sent: 7913 received: 5265
+19:33:36.270 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:36.566 Kafka stat sent: 7923 received: 5265
+19:33:37.272 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:37.566 Kafka stat sent: 7933 received: 5265
+19:33:38.274 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:38.566 Kafka stat sent: 7943 received: 5265
+19:33:39.276 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:39.567 Kafka stat sent: 7952 received: 5265
+19:33:40.296 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:40.567 Kafka stat sent: 7962 received: 5265
+19:33:41.298 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:41.567 Kafka stat sent: 7972 received: 5265
+19:33:42.299 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:42.567 Kafka stat sent: 7982 received: 5265
+19:33:43.301 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:43.567 Kafka stat sent: 7992 received: 5265
+19:33:44.303 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:44.567 Kafka stat sent: 8002 received: 5265
+19:33:45.304 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:45.567 Kafka stat sent: 8011 received: 5265
+19:33:46.305 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:46.568 Kafka stat sent: 8021 received: 5265
+19:33:47.307 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:47.568 Kafka stat sent: 8031 received: 5265
+19:33:48.308 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:48.568 Kafka stat sent: 8041 received: 5265
+19:33:49.311 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:49.568 Kafka stat sent: 8051 received: 5265
+19:33:50.313 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:50.571 Kafka stat sent: 8060 received: 5265
+19:33:51.314 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:51.571 Kafka stat sent: 8070 received: 5265
+19:33:52.316 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:52.571 Kafka stat sent: 8080 received: 5265
+19:33:53.318 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:53.572 Kafka stat sent: 8090 received: 5265
+19:33:54.319 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:54.572 Kafka stat sent: 8100 received: 5265
+19:33:55.320 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:55.572 Kafka stat sent: 8110 received: 5265
+19:33:56.324 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:56.572 Kafka stat sent: 8120 received: 5265
+19:33:57.325 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:57.572 Kafka stat sent: 8130 received: 5265
+19:33:58.326 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:58.573 Kafka stat sent: 8139 received: 5265
+19:33:59.328 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:33:59.573 Kafka stat sent: 8149 received: 5265
+19:34:00.329 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:00.573 Kafka stat sent: 8159 received: 5265
+19:34:01.331 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:01.573 Kafka stat sent: 8169 received: 5265
+19:34:02.333 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:02.573 Kafka stat sent: 8179 received: 5265
+19:34:03.336 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:03.573 Kafka stat sent: 8188 received: 5265
+19:34:04.337 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:04.574 Kafka stat sent: 8198 received: 5265
+19:34:05.339 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:05.574 Kafka stat sent: 8208 received: 5265
+19:34:06.341 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:06.574 Kafka stat sent: 8218 received: 5265
+19:34:07.342 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:07.574 Kafka stat sent: 8228 received: 5265
+19:34:08.344 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:08.574 Kafka stat sent: 8237 received: 5265
+19:34:09.347 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:09.574 Kafka stat sent: 8247 received: 5265
+19:34:10.349 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:10.575 Kafka stat sent: 8257 received: 5265
+19:34:11.352 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:11.575 Kafka stat sent: 8267 received: 5265
+19:34:12.353 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:12.575 Kafka stat sent: 8277 received: 5265
+19:34:13.354 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:13.575 Kafka stat sent: 8287 received: 5265
+19:34:14.355 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:14.575 Kafka stat sent: 8296 received: 5265
+19:34:15.356 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:15.575 Kafka stat sent: 8306 received: 5265
+19:34:16.359 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:16.576 Kafka stat sent: 8316 received: 5265
+19:34:17.360 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:17.576 Kafka stat sent: 8326 received: 5265
+19:34:18.362 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:18.576 Kafka stat sent: 8336 received: 5265
+19:34:19.366 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:19.576 Kafka stat sent: 8346 received: 5265
+19:34:20.368 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:20.576 Kafka stat sent: 8355 received: 5265
+19:34:21.369 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:21.576 Kafka stat sent: 8365 received: 5265
+19:34:22.371 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:22.577 Kafka stat sent: 8375 received: 5265
+19:34:23.385 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:23.577 Kafka stat sent: 8385 received: 5265
+19:34:24.386 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:24.577 Kafka stat sent: 8395 received: 5265
+19:34:25.387 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:25.577 Kafka stat sent: 8405 received: 5265
+19:34:26.389 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:26.577 Kafka stat sent: 8414 received: 5265
+19:34:27.391 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:27.577 Kafka stat sent: 8424 received: 5265
+19:34:28.393 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:28.578 Kafka stat sent: 8434 received: 5265
+19:34:29.396 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:29.578 Kafka stat sent: 8444 received: 5265
+19:34:30.398 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:30.578 Kafka stat sent: 8454 received: 5265
+19:34:31.402 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:31.578 Kafka stat sent: 8464 received: 5265
+19:34:32.404 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:32.578 Kafka stat sent: 8473 received: 5265
+19:34:33.405 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:33.579 Kafka stat sent: 8483 received: 5265
+19:34:34.407 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:34.579 Kafka stat sent: 8493 received: 5265
+19:34:35.408 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:35.579 Kafka stat sent: 8503 received: 5265
+19:34:36.410 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:36.579 Kafka stat sent: 8512 received: 5265
+19:34:37.413 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:37.579 Kafka stat sent: 8522 received: 5265
+19:34:38.416 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:38.580 Kafka stat sent: 8532 received: 5265
+19:34:39.418 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:39.580 Kafka stat sent: 8542 received: 5265
+19:34:40.419 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:40.580 Kafka stat sent: 8551 received: 5265
+19:34:41.422 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:41.580 Kafka stat sent: 8561 received: 5265
+19:34:42.424 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:42.580 Kafka stat sent: 8571 received: 5265
+19:34:43.426 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:43.581 Kafka stat sent: 8581 received: 5265
+19:34:44.427 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:44.581 Kafka stat sent: 8590 received: 5265
+19:34:45.432 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:45.581 Kafka stat sent: 8600 received: 5265
+19:34:46.445 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:46.581 Kafka stat sent: 8610 received: 5265
+19:34:47.455 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:47.581 Kafka stat sent: 8620 received: 5265
+19:34:48.456 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:48.581 Kafka stat sent: 8629 received: 5265
+19:34:49.458 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:49.582 Kafka stat sent: 8639 received: 5265
+19:34:50.471 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:50.582 Kafka stat sent: 8649 received: 5265
+19:34:51.472 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:51.582 Kafka stat sent: 8659 received: 5265
+19:34:52.473 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:52.582 Kafka stat sent: 8669 received: 5265
+19:34:53.474 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:53.582 Kafka stat sent: 8678 received: 5265
+19:34:54.476 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:54.582 Kafka stat sent: 8688 received: 5265
+19:34:55.477 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:55.583 Kafka stat sent: 8698 received: 5265
+19:34:56.479 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:56.583 Kafka stat sent: 8708 received: 5265
+19:34:57.481 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:57.583 Kafka stat sent: 8718 received: 5265
+19:34:58.482 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:58.583 Kafka stat sent: 8728 received: 5265
+19:34:59.483 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:34:59.583 Kafka stat sent: 8738 received: 5265
+19:35:00.484 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:35:00.583 Kafka stat sent: 8748 received: 5265
+19:35:01.486 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:35:01.584 Kafka stat sent: 8757 received: 5265
+19:35:02.487 Open card stat version 1 kyc: 5265 score: 3928 msg: 1887 createContract: 3378 scoreRate: 3378 contractConfirm: 3377 issueCard: 3378
+19:35:02.584 Kafka stat sent: 8767 received: 5265
