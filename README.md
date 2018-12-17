@@ -78,8 +78,10 @@ Will output incoming messages - one message per line.
 
 ## Links
 
-  * https://docs.zeebe.io/basics/exporters.html
-  * https://forum.zeebe.io/t/simple-monitor-ui/186
-  * https://github.com/zeebe-io/zeebe-get-started-java-client
+  * Exporters https://docs.zeebe.io/basics/exporters.html
+  * On Java client https://github.com/zeebe-io/zeebe-get-started-java-client
+  * Microservice orchestration with Zeebe and Kafka (October 2018), Kafka summit San Francisco https://videos.confluent.io/watch/AsRAbZdfAn3b6NMBpotg68
+  * Zeebe Year-end update (2018-12-13) https://vimeo.com/306349031
+  * How Zeebe scales horizontally https://zeebe.io/blog/2018/06/benchmarking-zeebe-horizontal-scaling/
 
 
