@@ -30,14 +30,17 @@ open class CardApplicationWorkers {
   lateinit var eventPublisher: ApplicationEventPublisher
 
   val random = Random()
+  var started = false
+  var workflowVersion = 0
 
   class SendMessage (val messageId: String, val correlationId: String)
 
   @Scheduled(fixedDelay = "1s")
   @Suppress("unused")
   fun dumpMeta() {
-    val ver = zeebe.getWorkflow("open-card").join().version
-    log.info("Open card stat version ${ver} kyc: ${meta.kycDone} score: ${meta.scoreDone} msg: ${meta.msgDone} createContract: ${meta.createContractDone} scoreRate: ${meta.scoreRateDone} contractConfirm: ${meta.contractConfirmDone} issueCard: ${meta.issueCardDone}")
+    if (started) {
+      log.info("Open card stat version ${workflowVersion} kyc: ${meta.kycDone} score: ${meta.scoreDone} msg: ${meta.msgDone} createContract: ${meta.createContractDone} scoreRate: ${meta.scoreRateDone} contractConfirm: ${meta.contractConfirmDone} issueCard: ${meta.issueCardDone}")
+    }
   }
 
   @EventListener
@@ -56,6 +59,14 @@ open class CardApplicationWorkers {
     if (!event.workflow.equals("open-card")) {
       return
     }
+
+    zeebe.getWorkflow("open-card").apply {
+      val r = this.get()
+      log.info("Deployed workflow key = {}, bpmnProcessId = {}, version = {}", r.workflowKey, r.version, r.resourceName)
+      workflowVersion = r.version
+      started = true
+    }
+
     zeebe.createJobClient("kyc", JobHandler { jobClient, job ->
       run {
         val headers = job.customHeaders

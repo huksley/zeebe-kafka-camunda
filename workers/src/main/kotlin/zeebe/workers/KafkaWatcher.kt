@@ -15,7 +15,7 @@ open class KafkaWatcher {
 
   @Scheduled(fixedDelay = "1s")
   fun dumpMeta() {
-    log.info("Kafka stat sent: ${meta.sent} received: ${meta.received}")
+    // log.info("Kafka stat sent: ${meta.sent} received: ${meta.received}")
   }
 
 }

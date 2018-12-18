@@ -19,6 +19,8 @@
   23:56:14.591 [grpc-default-executor-2] INFO  io.zeebe.client.job.poller - Activated 7 jobs for worker default and job type return-money
   -->
   <logger name="io.zeebe.client.job.poller" level="WARN"/>
+  <logger name="org.apache.kafka.clients.producer.ProducerConfig" level="WARN"/>
+  <logger name="org.apache.kafka.clients.consumer.ConsumerConfig" level="WARN"/>
   <!-- uncomment to see all trace
   <logger name="zeebe.workers.card" level="TRACE"/>
   -->

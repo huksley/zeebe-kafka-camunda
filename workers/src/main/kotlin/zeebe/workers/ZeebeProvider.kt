@@ -37,7 +37,6 @@ class ZeebeProvider: Zeebe {
       handler(handler).
       timeout(Duration.ofMillis(1000)).
       bufferSize(10).
-      pollInterval(Duration.ofMillis(1000)).
       open()
   }
 
