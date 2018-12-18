@@ -11,9 +11,8 @@ cd zeebe-simple-monitor
 git checkout custom-schema-mysql
 mvn clean package
 cd ..
-cd workers
-#./gradlew run
-cd ..
+
 ./gradlew download
 ./fix-perms
+
 docker-compose up -d

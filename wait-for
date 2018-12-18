@@ -26,7 +26,12 @@ wait_for() {
     
     result=$?
     if [ $result -eq 0 ] ; then
+      echo "Got response $HOST:$PORT"
       if [ -n "$command" ] ; then
+        if [ "$WAITFOR_SLEEP" != "" ]; then
+          echo "Sleep $WAITFOR_SLEEP"
+          sleep $WAITFOR_SLEEP
+        fi
         exec $command
       fi
       exit 0

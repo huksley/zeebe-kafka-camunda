@@ -54,6 +54,7 @@ services:
     environment:
       - SERVER_PORT=26500
       - ZEEBE_LOG_LEVEL=info
+      - WAITFOR_SLEEP=5
       - "SIMPLE_MONITOR_EXPORTER_JDBC_URL=jdbc:mariadb://monitor-mysql:3306/zeebe"
     volumes:
       - ./data/zeebe:/usr/local/zeebe/data
@@ -169,9 +170,11 @@ services:
     container_name: zeebe-metabase
     environment:
       - MB_DB_TYPE=h2
-      - MB_DB_FILE=/data/metabase.h2.db
+      - MB_DB_FILE=/data/
       - MB_JETTY_PORT=3000
       - JAVA_TIMEZONE=EEST
+      - MGID=1000
+      - MUID=1000
     volumes:
       - ./data/metabase:/data
     ports:
