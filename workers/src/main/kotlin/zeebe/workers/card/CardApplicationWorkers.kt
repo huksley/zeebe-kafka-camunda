@@ -7,6 +7,7 @@ import io.micronaut.scheduling.annotation.Async
 import io.micronaut.scheduling.annotation.Scheduled
 import io.zeebe.client.api.subscription.JobHandler
 import org.slf4j.LoggerFactory
+import zeebe.workers.WorkflowDeployedEvent
 import zeebe.workers.Zeebe
 import java.math.BigDecimal
 import java.math.BigInteger
@@ -51,7 +52,10 @@ open class CardApplicationWorkers {
   @EventListener
   @Async
   @Suppress("unused")
-  open fun onStartup(event: ServerStartupEvent) {
+  open fun onStartup(event: WorkflowDeployedEvent) {
+    if (!event.workflow.equals("open-card")) {
+      return
+    }
     zeebe.createJobClient("kyc", JobHandler { jobClient, job ->
       run {
         val headers = job.customHeaders

@@ -1,9 +1,11 @@
 package zeebe.workers
 
+import io.micronaut.context.event.ApplicationEventPublisher
 import io.micronaut.runtime.event.annotation.EventListener
 import io.micronaut.runtime.server.event.ServerStartupEvent
 import io.micronaut.scheduling.annotation.Async
 import org.slf4j.LoggerFactory
+import java.io.File
 import java.nio.file.FileSystems
 import java.nio.file.Files
 import java.nio.file.Path
@@ -21,6 +23,9 @@ open class ZeebeWorkflowDeployer {
   @Inject
   lateinit var zeebe: Zeebe
 
+  @Inject
+  lateinit var eventPublisher: ApplicationEventPublisher
+
   @EventListener
   @Async
   open fun onStartup(event: ServerStartupEvent) {
@@ -33,5 +38,10 @@ open class ZeebeWorkflowDeployer {
     log.info("Deploying workflows: {}", l)
     val ev = zeebe.deployProcessWorkflow("order-process", l).join()
     log.info("Got deployment response: ${ev}")
+    for (n in l) {
+      val nn = File(n.replace(".bpmn", "")).getName()
+      log.info("Sending event workflow deployed {}", nn)
+      eventPublisher.publishEvent(WorkflowDeployedEvent(nn))
+    }
   }
 }
