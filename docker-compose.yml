@@ -93,6 +93,7 @@ services:
     volumes:
       - ./data/mysql:/var/lib/mysql
       - ./mariadb.conf:/etc/mysql/conf.d/zeebe.cnf
+      - ./simple-monitor.sql:/docker-entrypoint-initdb.d/simple-monitor.sql
   monitor:
     container_name: zeebe-mon
     image: camunda/zeebe-simple-monitor:0.10.0

@@ -8,7 +8,7 @@ if [ ! -d zeebe-simple-monitor ]; then
 fi
 
 cd zeebe-simple-monitor
-git checkout custom-schema-mysql
+git checkout create-schema-disable
 mvn clean package
 cd ..
 

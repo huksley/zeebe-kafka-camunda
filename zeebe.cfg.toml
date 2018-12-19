@@ -110,4 +110,4 @@ className = "io.zeebe.monitor.SimpleMonitorExporter"
   password = "123"
   batchSize = 100
   batchTimerMilli = 1000
-  createSchema = "/CREATE_SCHEMA_MYSQL.sql"
+  createSchema = false
