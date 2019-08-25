@@ -1,5 +1,5 @@
 # Produces native image
-FROM oracle/graalvm-ce:1.0.0-rc9
+FROM oracle/graalvm-ce:1.0.0-rc8
 EXPOSE 8080
 COPY build/libs/workers-*-all.jar workers.jar
 ADD . build
@@ -10,7 +10,7 @@ RUN native-image --no-server \
              -H:EnableURLProtocols=http \
              -H:IncludeResources="logback.xml|application.yml|META-INF/services/*.*" \
              -H:Name=workers \
-             -H:Class=com.github.huksley.zeebe.workers.Application \
+             -H:Class=zeebe.workers.Application \
              -H:+ReportUnsupportedElementsAtRuntime \
              -H:+AllowVMInspection \
              -H:-UseServiceLoaderFeature \
